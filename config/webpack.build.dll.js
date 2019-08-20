@@ -17,7 +17,7 @@ module.exports = {
       "loadjs"
     ],
     // 模块公共依赖 / 防止模块打包重复代码
-    puzzle: ["moment"]
+    puzzle: []
   },
   output: {
     filename: "[name].[chunkhash].dll.js",
