@@ -36,6 +36,39 @@ export default [
     icon: "puzzle",
     puzzle: "test"
   },
+    {
+        id: "custormManager",
+        name: "客户管理",
+        leaf: false,
+        children: [
+            {
+                id: "sysInfoIndex",
+                name: "信息管理",
+                leaf: false,
+                icon: "puzzle",
+                puzzle: "custormManager",
+                children: [
+                    {
+                        id: "productManager",
+                        name: "产品管理",
+                        leaf: true,
+                        page: "/sysInfo/productManager/index",
+                        puzzle: "sysInfoIndex"
+                    },
+                    {
+                        id: "productManagerDetail",
+                        name: "产品管理-详情",
+                        leaf: true,
+                        page: "/sysInfo/productManager/detail",
+                        puzzle: "sysInfoIndex",
+                        hide: true
+                    }
+                ]
+            }
+        ],
+        icon: "puzzle",
+        puzzle: "custormManager"
+    },
   {
     id: "elastic",
     name: "弹性计算",

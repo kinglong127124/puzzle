@@ -14,6 +14,9 @@ module.exports = {
       "vuex",
       // 第三方依赖
       "axios",
+      "element-ui",
+      "js-cookie",
+      "babel-polyfill",
       "loadjs"
     ],
     // 模块公共依赖 / 防止模块打包重复代码
