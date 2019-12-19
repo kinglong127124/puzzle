@@ -97,7 +97,7 @@ const actions = {
         for (let i = 0; i < menusList.length; i++) {
           menus[menusList[i].code] = menusList[i];
         }
-        commit('SET_MENUS', menus);
+        // commit('SET_MENUS', menus);
         resolve(data);
       }).catch(error => {
         reject(error);

@@ -20,6 +20,8 @@
     "minireset.css": "0.0.5",
     "mockjs": "1.1.0",
     "moment": "2.24.0",
+    "nprogress": "0.2.0",
+    "screenfull": "^4.0.0",
     "vue": "2.5.17",
     "vue-router": "3.0.6",
     "vue-splitpane": "1.0.2",

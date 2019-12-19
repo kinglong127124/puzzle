@@ -27,7 +27,7 @@ export default {
     cursor: pointer;
     i {
       &.ka-icon-top-nav {
-        background: url("../../assets/img/layout/top-nav.png") no-repeat;
+        background: url("../../../../assets/img/layout/top-nav.png") no-repeat;
         background-position: 8px;
         transform: rotate(0deg);
         transition: .38s;
