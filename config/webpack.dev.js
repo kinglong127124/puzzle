@@ -28,7 +28,15 @@ module.exports = merge(common, {
     open: false,
     // 代理
     proxy: {
-      "/api": "http://localhost:8888"
+        '/api': {
+            // target: 'http://211.149.189.12:18765' // 生产服务器（http://pm.epmsoft.cn）
+            target: 'http://192.168.0.5:18765' // 开发服务器
+            // target: 'http://192.168.0.6:18765' // 测试服务器
+            // target: 'http://192.168.0.18:18765' // 王坤
+            // target: 'http://192.168.0.12:18765'// 李俊波
+            // target: 'http://192.168.0.13:18765' // 刘科
+            // target: 'http://192.168.0.11:18765'// 郑金龙
+        }
     }
     // history 模式
     // historyApiFallback: {

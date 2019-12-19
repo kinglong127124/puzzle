@@ -1,0 +1,311 @@
+//覆盖一些element-ui样式
+
+[class*=" el-icon-"], [class^=el-icon-] {
+  font-size: 14px;
+}
+
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+  font-weight: 400 !important;
+}
+
+.el-upload {
+  input[type="file"] {
+    display: none !important;
+  }
+}
+
+.el-upload__input {
+  display: none;
+}
+
+.cell {
+  .el-tag {
+    margin-right: 0px;
+  }
+}
+
+.small-padding {
+  .cell {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.fixed-width {
+  .el-button--mini {
+    padding: 7px 10px;
+    width: 60px;
+  }
+}
+
+.status-col {
+  .cell {
+    padding: 0 10px;
+    text-align: center;
+
+    .el-tag {
+      margin-right: 0px;
+    }
+  }
+}
+
+//暂时性解决dialog 问题 https://github.com/ElemeFE/element/issues/2461
+.el-dialog {
+  transform: none;
+  left: 0;
+  position: relative;
+  margin: 0 auto;
+}
+
+//文章页textarea修改样式
+.article-textarea {
+  textarea {
+    padding-right: 40px;
+    resize: none;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid #bfcbd9;
+  }
+}
+
+//element ui upload
+.upload-container {
+  .el-upload {
+    width: 100%;
+
+    .el-upload-dragger {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}
+
+//dropdown
+.el-dropdown-menu {
+  a {
+    display: block
+  }
+}
+
+.el-input__inner {
+  border-radius: 0;
+  padding: 0 10px;
+}
+.el-select{
+  display: block;
+}
+.el-form-item {
+  margin-bottom: 5px;
+  position: relative;
+}
+.el-dialog__header {
+  padding: 10px 20px 10px;
+  border-bottom: 1px solid #ccc;
+  .el-dialog__headerbtn {
+    top: 14px;
+  }
+}
+
+.el-dialog__body {
+  padding: 10px;
+  .el-form--inline .el-form-item {
+    margin-right: 0;
+  }
+}
+
+.el-dialog__footer {
+  border-top: 1px solid #ccc;
+  padding: 10px;
+}
+
+.el-radio__label {
+  padding-left: 0;
+}
+
+.el-radio + .el-radio {
+  margin-left: 10px;
+}
+.el-card{
+  box-shadow:none !important;
+  .el-card__header {
+    padding: 8px 10px;
+  }
+  .el-card__body {
+    padding: 10px;
+  }
+}
+.el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content,.el-tree-node__content:hover{
+  color: #409EFF;
+  background-color: #c8dcff;
+}
+.el-tree{
+  &.treeGray,&.filter-tree{
+    background: #f3f6fa;
+  }
+}
+.el-button--primary.is-plain.is-disabled, .el-button--primary.is-plain.is-disabled:active, .el-button--primary.is-plain.is-disabled:focus, .el-button--primary.is-plain.is-disabled:hover {
+  color: #FFFFFF;
+  background-color: #c5cad7;
+  border-color: #c5cad7;
+}
+
+.el-button--danger.is-plain.is-disabled, .el-button--danger.is-plain.is-disabled:active, .el-button--danger.is-plain.is-disabled:focus, .el-button--danger.is-plain.is-disabled:hover {
+  color: #fff;
+  background-color: #c5cad7;
+  border-color: #c5cad7;
+}
+
+.el-button--success.is-plain.is-disabled, .el-button--success.is-plain.is-disabled:active, .el-button--success.is-plain.is-disabled:focus, .el-button--success.is-plain.is-disabled:hover {
+  color: #fff;
+  background-color: #c5cad7;
+  border-color: #c5cad7;
+}
+
+.el-form-item__error {
+  top: 74%;
+}
+
+.login-body {
+  .el-form-item__error {
+    top: 100%;
+  }
+}
+
+.el-form-item.is-success .el-input__inner,
+.el-form-item.is-success .el-textarea__inner {
+  border-color: #e4e7ed;
+}
+
+.el-form-item.is-success .el-input__inner:focus,
+.el-form-item.is-success .el-textarea__inner:focus {
+  border-color: #409EFF;
+}
+.el-button--small, .el-button--small.is-round {
+  padding: 0 10px;
+  height: 32px;
+}
+
+.el-textarea__inner {
+  padding: 5px 10px;
+}
+.el-textarea.is-disabled .el-textarea__inner{
+  color: #606266;
+}
+
+.el-tabs--border-card{
+  box-shadow: none;
+  >.el-tabs__content{
+    padding: 10px;
+  }
+}
+// 表格
+.el-table tbody tr {
+  cursor: pointer;
+}
+.el-table--fit{
+  border-top: 2px solid #409eff;
+}
+.el-table th {
+  background-color: #F2FBFF;
+}
+.el-table__empty-block {
+  height: 40px;
+}
+.el-table th, .el-table td {
+  color: #606266;
+}
+
+.el-table__header td.spacing-set, .el-table__header th.spacing-set {
+  padding: 0;
+}
+
+.el-table--medium td.spacing-set, .el-table--medium th.spacing-set {
+  padding: 0;
+  .cell {
+    padding: 0;
+    .el-form {
+      margin-bottom: -5px;
+    }
+    input[type="number"] {
+      padding-right: 0;
+    }
+    .el-input--small .el-input__inner {
+      height: 34px;
+      line-height: 32px;
+      //border-color: rgba(0,0,0,.1);
+      background: transparent;
+    }
+    .el-input__inner {
+      border-color: rgba(255, 255, 255, .1);
+    }
+    .el-input--small .el-input__inner:hover, .el-input--small .el-input__inner:hover,
+    .el-input--small .el-input__inner:focus, .el-input--small .el-input__inner:focus {
+      border-color: #c5cad7;
+      background: #fff;
+    }
+    .el-form-item.is-error .el-input__inner, .el-form-item.is-error .el-input__inner:focus, .el-form-item.is-error .el-textarea__inner, .el-form-item.is-error .el-textarea__inner:focus, .el-message-box__input input.invalid, .el-message-box__input input.invalid:focus {
+      border-color: #f56c6c;
+    }
+    .el-input.is-disabled .el-input__inner, .el-input.is-disabled .el-input__inner:hover, .el-input.is-disabled .el-input__inner:focus {
+      border-color: transparent !important;
+      background: none !important;
+      color: #606266 !important;
+      pointer-events: none;
+    }
+    > span, span.span-text {
+      margin: 0 10px;
+    }
+    .el-button {
+      font-size: 14px;
+    }
+  }
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: #c8dcff;
+  background-clip: padding-box;
+  color: black;
+}
+
+.el-table__body tr.current-row > td {
+  background: #c8dcff;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped.current-row td {
+  background: #c8dcff;
+}
+
+.el-table--medium td, .el-table--medium th {
+  padding: 6px 0;
+}
+
+.el-table th > .cell {
+  font-weight: normal;
+  color: #666666;
+}
+.el-switch{
+  height: 36px;
+}
+.el-radio-group{
+  margin-bottom: 4px;
+}
+
+
+.el-select__tags{
+  .el-select__tags-text {
+    display: inline-flex;
+    max-width: 130px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow: hidden;
+  }
+  .el-select-dropdown__item {
+    max-width: 98%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+}

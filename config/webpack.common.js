@@ -16,6 +16,7 @@ module.exports = {
       "@": resolve("src"),
       "@core": resolve("src/core"),
       "@frames": resolve("src/frames"),
+      "@framesDashboard": resolve("src/frames/dashboard"),
       "@puzzles": resolve("src/puzzles")
     }
   },
@@ -37,6 +38,10 @@ module.exports = {
       {
         test: /\.less$/,
         use: ["vue-style-loader", "css-loader", "less-loader"]
+      },
+      {
+        test: /\.(sass|scss)$/,
+        use: ["vue-style-loader", 'css-loader', 'sass-loader']
       },
       {
         test: /\.(png|svg|jpg|gif)$/,

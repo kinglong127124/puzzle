@@ -1,0 +1,198 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin scrollBar {
+  &::-webkit-scrollbar-track-piece {
+    background: #d3dce6;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #99a9bf;
+    border-radius: 20px;
+  }
+}
+
+@mixin relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin pct($pct) {
+  width: #{$pct};
+  position: relative;
+  margin: 0 auto;
+}
+//calc
+@mixin calcExp($exp) {
+  height: -moz-calc($exp);
+  height: -webkit-calc($exp);
+  height: calc($exp);
+}
+
+@mixin triangle($width, $height, $color, $direction) {
+  $width: $width/2;
+  $color-border-style: $height solid $color;
+  $transparent-border-style: $width solid transparent;
+  height: 0;
+  width: 0;
+
+  @if $direction==up {
+    border-bottom: $color-border-style;
+    border-left: $transparent-border-style;
+    border-right: $transparent-border-style;
+  } @else if $direction==right {
+    border-left: $color-border-style;
+    border-top: $transparent-border-style;
+    border-bottom: $transparent-border-style;
+  } @else if $direction==down {
+    border-top: $color-border-style;
+    border-left: $transparent-border-style;
+    border-right: $transparent-border-style;
+  } @else if $direction==left {
+    border-right: $color-border-style;
+    border-top: $transparent-border-style;
+    border-bottom: $transparent-border-style;
+  }
+}
+
+//表单间距
+@mixin bottom-space {
+  .el-button {
+    margin-bottom: 20px;
+  }
+}
+
+//右边间距改成左边间距
+@mixin el-button-space {
+  .el-button {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}
+/* display */
+@mixin display-flex{
+  display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box; /* Firefox 17- */
+  display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex; /* Firefox 18+ */
+  display: -ms-flexbox; /* IE 10 */
+  //display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+}
+/* 父元素-排列参数传递   flex-direction: row | row-reverse | column | column-reverse;*/
+@mixin flex-direction($param){
+  -webkit-flex-direction: $param;
+  -moz-flex-direction: $param;
+  -ms-flex-direction: $param;
+  -o-flex-direction: $param;
+  flex-direction: $param;
+}
+/* 父元素-横向排列（主轴）*/
+@mixin flex-direction-row {
+  /* 09版 */
+  -webkit-box-orient: horizontal;
+  /* 12版 */
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+}
+/* 父元素-纵向排列（主轴）*/
+@mixin flex-direction-column {
+  /* 09版 */
+  -webkit-box-orient: vertical;
+  /* 12版 */
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+}
+
+/* 父元素-纵向换行  flex-wrap: nowrap | wrap | wrap-reverse;*/
+@mixin flex-wrap($param) {
+  /* 09版 */
+  /*-webkit-box-lines: multiple;*/
+  /* 12版 */
+  -webkit-flex-wrap: $param;
+  -moz-flex-wrap: $param;
+  -ms-flex-wrap: $param;
+  -o-flex-wrap: $param;
+  flex-wrap: $param;
+}
+/* 父元素-flex-direction属性和flex-wrap属性的简写形式 */
+@mixin flex-flow{
+  /* 12版 */
+  -webkit-flex-flow: row nowrap;
+  -moz-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  -o-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+}
+/* 父元素-水平居中（主轴是横向才生效） */
+/* 其它取值如下：
+  flex-start（默认值）：左对齐
+ flex-end：右对齐
+center： 居中
+space-between：两端对齐，项目之间的间隔都相等。
+space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+ */
+@mixin flex-justify-content($param) {
+  /* 09版 */
+  -webkit-box-pack: $param;
+  /* 12版 */
+  -webkit-justify-content: $param;
+  -moz-justify-content: $param;
+  -ms-justify-content: $param;
+  -o-justify-content: $param;
+  justify-content: $param;
+}
+
+/* 父元素-竖直居中（主轴是横向才生效）  align-items: flex-start | flex-end | center | baseline | stretch; */
+@mixin flex-align-items($param) {
+  /* 09版 */
+  -webkit-box-align: $param;
+  /* 12版 */
+  -webkit-align-items: $param;
+  -moz-align-items: $param;
+  -ms-align-items: $param;
+  -o-align-items: $param;
+  align-items: $param;
+}
+/* 父元素-多根轴线的对齐方式   align-content: flex-start | flex-end | center | space-between | space-around | stretch; */
+@mixin flex-align-content($param) {
+  /* 09版 */
+  -webkit-box-align: $param;
+  /* 12版 */
+  -webkit-align-content: $param;
+  -moz-align-content: $param;
+  -ms-align-content: $param;
+  -o-align-content: $param;
+  align-content: $param;
+}
+/* 子元素-显示在从左向右（从上向下）第$param个位置，用于改变源文档顺序显示  order: <integer>;*/
+@mixin flex-order($param) {
+  -webkit-box-ordinal-group:$param;   /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-ordinal-group: $param;      /* OLD - Firefox 19- */
+  -ms-flex-order: $param;              /* TWEENER - IE 10 */
+  -webkit-order: $param;               /* NEW - Chrome */
+  order: $param;                       /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+/* 子元素-平均分栏   flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]*/
+@mixin flex($param) {
+  -webkit-box-flex: $param;      /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $param;         /* OLD - Firefox 19- */
+  -webkit-flex: $param;          /* Chrome */
+  -ms-flex: $param;              /* IE 10 */
+  flex: $param;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}

@@ -2,7 +2,7 @@ export default [
   {
     path: "/login",
     component: () =>
-      import(/* webpackChunkName: "views/Login" */ "../views/Login")
+      import(/* webpackChunkName: "views/Login" */ "../views/user/login")
   },
   {
     path: "/",
