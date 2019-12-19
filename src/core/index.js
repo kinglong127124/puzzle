@@ -33,12 +33,11 @@ Vue.prototype.$utils = utils;
 Vue.prototype.$utilsBasic = utilsBasic;
 Vue.config.productionTip = false;
 Vue.config.devtools = true;
-if (process.env.NODE_ENV == "development") {
-  console.log("development mode");
-  //开启debug模式
-  Vue.config.debug = true;
+Vue.config.debug = true;
+if (process.env.NODE_ENV === 'production') {
+  Vue.config.devtools = false;
+  Vue.config.debug = false;
 }
-
 new Vue({
   router,
   store,
