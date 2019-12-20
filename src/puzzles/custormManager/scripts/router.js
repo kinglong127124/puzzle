@@ -1,26 +1,27 @@
-export default function(menusRouter, puzzleName) {
+export default function (menusRouter, puzzleName) {
   let router = [];
-   console.log('menusRouter', menusRouter, puzzleName);
   // 动态路由
   for (let item of menusRouter) {
-    let path="/" + puzzleName + item.page;
-      if (item.page && item.page.indexOf('/detail') > -1) {
-          path = "/" + puzzleName + item.page + '/id/:id*';
-      }
-      router.push({
-          name: item.id,
-          path: "/" + puzzleName + item.page,
-          component: () =>
-              import(
-                  /* webpackChunkName: "views/[request]" */
-                  `../views${item.page}`
-                  ),
-          meta: {
-              puzzleName: puzzleName,
-              name: item.name,
-              resource: item.resource ? item.resource : []
-          }
-      });
+    const hrefArray = item.href.split('/');
+    hrefArray.splice(0, 2);
+    const page = hrefArray.join('/');
+    console.log(item, item.href, page);
+    router.push({
+      name: item.id,
+      path: "/" + puzzleName + "/" + page,
+      component: () =>
+        import(
+          /* webpackChunkName: "views/[request]" */
+          `../views/${page}`
+          ),
+      meta: Object.assign({menuCode: item.code, ...item}, {
+        isCache: item.isCache == 1,
+        isAffix: item.affix == 1,
+        name: item.title,
+        puzzleName: puzzleName,
+        resource: item.resource ? item.resource : []
+      })
+    });
   }
   return router;
 }

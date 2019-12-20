@@ -10,7 +10,7 @@
       <!-- 图标 -->
       <i v-if="item.icon" class="iconfont" :class="'icon-'+item.icon"></i>
       <!-- 名字 -->
-      <div v-html="withKW(item.name)" class="fb1"></div>
+      <div v-html="withKW(item.title)" class="fb1"></div>
       <!-- 文件夹图标 -->
       <i
         v-if="!item.leaf"

@@ -35,7 +35,7 @@ export default [
     ]
   },
   {
-    path: '/',
+    path: '/dashboard',
     component: Layout,
     redirect: '/dashboard',
     name: 'dashboardIndex',

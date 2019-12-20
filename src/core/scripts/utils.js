@@ -1,7 +1,17 @@
 // 处理菜单
-export function handleMenus(menus, result) {
+export function handleMenus(obj, menus, result) {
   for (let item of menus) {
-    if (!(item.children && item.children.length > 0)) result.push(item);
-    else if (item.children && item.children.length > 0) handleMenus(item.children, result);
+    obj.$set(item, 'id', item.code);
+    obj.$set(item, 'page', item.href);
+    obj.$set(item, 'name', item.title);
+    obj.$set(item, 'puzzle', item.code);
+    console.log(`${item.type}`,item.code);
+    if (item.type == 'menu'){
+      obj.$set(item, 'leaf', true);
+      result.push(item)
+    }else{
+      obj.$set(item, 'leaf', false);
+      handleMenus(obj, item.children, result)
+    }
   }
 }

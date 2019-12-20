@@ -13,16 +13,16 @@ export default {
   methods: {
     async init() {
       document.title = PUZZLE_CONFIG.appName;
-        // this.$store.dispatch('GetInfo').then(async response => { // 拉取user_info
-        //   console.log('GetInfo', response);
+        this.$store.dispatch('GetInfo').then(async response => { // 拉取user_info
+          console.log('GetInfo', response);
           // store.dispatch('RootMenusSelected', selectedCode);
-      // let menus1 = this.$store.getters.rootMenus;
-      // console.log('menus1', menus1);
+      let rootMenus = this.$store.getters.rootMenus;
+      // console.log('menus1', rootMenus);
           let res = await getMenus();
 
           // 保存菜单
           let menus = res.data;
-          this.$store.commit("SET_MENUS", menus);
+          this.$store.commit("SET_MENUS", rootMenus);
           console.log('menus', menus);
           // 获取缓存map
           const modulesMap = await _import_map();
@@ -30,7 +30,7 @@ export default {
           // 获取架构
           let frame = await _import(
             "frames",
-            localStorage.getItem("frame") || PUZZLE_CONFIG.frame,
+            PUZZLE_CONFIG.frame,//localStorage.getItem("frame") ||
             modulesMap
           );
           this.$router.addRoutes(frame.routerStatic);
@@ -42,18 +42,27 @@ export default {
 
           let pages = childRouter[0].children;
           // 获取模块 / 异步获取
-          for (let puzzle of menus)
+          for (let puzzle of rootMenus) {
+            this.$set(puzzle, 'id', puzzle.code);
+            this.$set(puzzle, 'page', puzzle.href);
+            this.$set(puzzle, 'name', puzzle.title);
+            this.$set(puzzle, 'puzzle', puzzle.code);
+            if (puzzle.type == 'menu'){
+              this.$set(puzzle, 'leaf', true);
+            }else{
+              this.$set(puzzle, 'leaf', false);
+            }
             _import("puzzles", puzzle.id, modulesMap)
               .then(p => {
                 // 需要生成路由的菜单
                 let menusRouter = [];
-                handleMenus(puzzle.children, menusRouter);
+                handleMenus(this, puzzle.children, menusRouter);
+                console.log('menusRouter', menusRouter);
                 // 路由
                 childRouter[0].children = p
                   .router(menusRouter, puzzle.id)
                   .concat(p.routerStatic);
                 pages.push(...childRouter[0].children);
-                console.log('childRouter', childRouter);
                 this.$router.addRoutes(childRouter);
                 // Store
                 for (let name in p.store)
@@ -61,15 +70,16 @@ export default {
               })
               .catch(err => {
               });
-          // 储存路由表
-          this.$store.commit("SET_PAGES", pages);
-          console.log('pages', pages);
-        // }).catch((err) => {
-        //   console.log(err);
-        //   // this.$store.dispatch('FedLogOut').then(() => {
-        //   //   this.$router.push({path: '/'});
-        //   // });
-        // });
+          }
+            // 储存路由表
+            this.$store.commit("SET_PAGES", pages);
+            console.log('pages', pages);
+        }).catch((err) => {
+          console.log(err);
+          // this.$store.dispatch('FedLogOut').then(() => {
+          //   this.$router.push({path: '/'});
+          // });
+        });
     }
   },
   created() {
