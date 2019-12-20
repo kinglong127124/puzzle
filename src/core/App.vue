@@ -1,23 +1,24 @@
 <template>
-  <router-view class="view" />
+    <router-view class="view"/>
 </template>
 
 <script>
-import { getMenus } from "./api/frame";
-import _import from "./scripts/_import";
-import _import_map from "./scripts/_import_map";
-import { handleMenus } from "./scripts/utils";
+  import {getMenus} from "./api/frame";
+  import _import from "./scripts/_import";
+  import _import_map from "./scripts/_import_map";
+  import { handleMenusApp} from "./scripts/utils";
 
-export default {
-  name: "app",
-  methods: {
-    async init() {
-      document.title = PUZZLE_CONFIG.appName;
+  export default {
+    name: "app",
+    methods: {
+      async init() {
+        document.title = PUZZLE_CONFIG.appName;
+
         this.$store.dispatch('GetInfo').then(async response => { // 拉取user_info
-          console.log('GetInfo', response);
+          // console.log('GetInfo', response);
           // store.dispatch('RootMenusSelected', selectedCode);
-      let rootMenus = this.$store.getters.rootMenus;
-      // console.log('menus1', rootMenus);
+          let rootMenus = this.$store.getters.rootMenus;
+          // console.log('menus1', rootMenus);
           let res = await getMenus();
 
           // 保存菜单
@@ -34,6 +35,7 @@ export default {
             modulesMap
           );
           this.$router.addRoutes(frame.routerStatic);
+          console.log('frame.routerStatic', frame.routerStatic);
           // 嵌套路由 / 默认两级路由
           let childRouter = frame.routerStatic.filter(item => item.path == "/");
           // Store
@@ -47,17 +49,17 @@ export default {
             this.$set(puzzle, 'page', puzzle.href);
             this.$set(puzzle, 'name', puzzle.title);
             this.$set(puzzle, 'puzzle', puzzle.code);
-            if (puzzle.type == 'menu'){
+            if (puzzle.type == 'menu') {
               this.$set(puzzle, 'leaf', true);
-            }else{
+            } else {
               this.$set(puzzle, 'leaf', false);
             }
             _import("puzzles", puzzle.id, modulesMap)
               .then(p => {
                 // 需要生成路由的菜单
                 let menusRouter = [];
-                handleMenus(this, puzzle.children, menusRouter);
-                console.log('menusRouter', menusRouter);
+                handleMenusApp(this, puzzle.children, menusRouter);
+                // console.log('menusRouter', menusRouter);
                 // 路由
                 childRouter[0].children = p
                   .router(menusRouter, puzzle.id)
@@ -71,23 +73,24 @@ export default {
               .catch(err => {
               });
           }
-            // 储存路由表
-            this.$store.commit("SET_PAGES", pages);
-            console.log('pages', pages);
+          // 储存路由表
+          this.$store.commit("SET_PAGES", pages);
+          // console.log('pages', pages);
         }).catch((err) => {
           console.log(err);
           // this.$store.dispatch('FedLogOut').then(() => {
           //   this.$router.push({path: '/'});
           // });
         });
+      }
+    },
+    created() {
+      this.init()
+        .then(() => {
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
-  },
-  created() {
-    this.init()
-      .then(() => {})
-      .catch(err => {
-        console.log(err);
-      });
-  }
-};
+  };
 </script>

@@ -168,7 +168,6 @@ const actions = {
       commit('MENUS_SEARCH', undefined);
       commit('CHILDREN_MENUS', undefined);
       commit('IS_LOADMENUDATA', undefined);
-      debugger;
       removeToken();
       removeKey('inputPersonFullPathSuper');
       removeKey('sysUnitIdSuper');

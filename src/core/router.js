@@ -1,6 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "./store/";
+import NProgress from 'nprogress'; // progress bar
+import 'nprogress/nprogress.css';// progress bar style
+import {getToken, getCookie} from '@core/utils/auth'; // getToken from cookie
+import {logout} from '@core/utils/index';
 
 Vue.use(VueRouter);
 
@@ -33,10 +37,36 @@ function markScroll(to, from, next) {
     store.commit("ADD_TAB", to.name);
   }
 }
-
+NProgress.configure({showSpinner: false});// NProgress Configuration
+const whiteList = ['/login', '/auth-redirect', '/register', '/choose', '/forgetPassword'];// no redirect whitelist
 router.beforeEach((to, from, next) => {
   markScroll(to, from, next);
-  next();
+  NProgress.start(); // start progress bar
+  // console.log('getToken()',getToken());
+  // console.log('to.path',to.path);
+  if (getToken()) { // determine if there has token
+    /* has token*/
+    if (to.path === '/login') {
+      next({path: '/'});
+      NProgress.done();
+    } else {
+      next();
+    }
+  } else {
+    /* has no token*/
+    if (whiteList.indexOf(to.path) !== -1) { // 在免登录白名单，直接进入
+      next();
+    } else {
+      next(`/login?redirect=${to.path}`); // 否则全部重定向到登录页
+      NProgress.done();
+    }
+  }
+});
+router.afterEach((to, from) => {
+  // if(from.path != '/register' &&from.path != '/login' && from.path != '/' && to.path == '/login'){
+  //   window.location.reload();
+  // }
+  NProgress.done();
 });
 // 防止路由到错误地址
 // router.beforeEach((to, from, next) => {

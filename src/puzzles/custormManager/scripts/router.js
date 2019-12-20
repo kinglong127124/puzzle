@@ -5,7 +5,7 @@ export default function (menusRouter, puzzleName) {
     const hrefArray = item.href.split('/');
     hrefArray.splice(0, 2);
     const page = hrefArray.join('/');
-    console.log(item, item.href, page);
+    // console.log(item, item.href, page);
     router.push({
       name: item.id,
       path: "/" + puzzleName + "/" + page,

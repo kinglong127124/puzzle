@@ -15,7 +15,7 @@ import '@core/styles/index.scss'; // global css
 // 接口
 import axios from "./api/axios";
 window.axios = axios;
-import './permission'; // permission control
+// import './permission'; // permission control
 import '@core/mock'; // simulation data
 import * as filters from '@core/filters'; // global filters
 import utils from '@core/utils/util';
