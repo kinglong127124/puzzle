@@ -270,7 +270,7 @@ export default {
                 this.$store.dispatch('RootMenusLeaf', { menuDataAll });
               }, 0);
               // this.$router.push({ path: rootMenusSelected.href, query: this.otherQuery });
-              this.$router.push({ path: '/home', query: this.otherQuery });
+              this.$router.push({ path: '/', query: this.otherQuery });
             } else {
               localStorage.setItem('username', '');
               localStorage.setItem('password', '');

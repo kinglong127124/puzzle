@@ -16,34 +16,24 @@ export default [
   },
   {
     path: "/login",
+    name: 'login',
     component: () =>
       import(/* webpackChunkName: "views/Login" */ "../views/user/login")
   },
   {
     path: "/",
-    component: () => import(/* webpackChunkName: "views/Frame" */ "../views/Frame/"),
+    name: 'dashboardIndex',
+    component: () => import(/* webpackChunkName: "views/layout" */ "../views/layout/Layout"),
     children: [
       {
         path: "/",
-        redirect: "/home"
+        redirect: "/dashboard",
+        name: 'dashboard'
       },
       {
-        path: "/home",
+        path: "/dashboard",
         component: () =>
-          import(/* webpackChunkName: "views/Home" */ "../views/Home")
-      }
-    ]
-  },
-  {
-    path: '/dashboard',
-    component: Layout,
-    redirect: '/dashboard',
-    name: 'dashboardIndex',
-    children: [
-      {
-        path: 'dashboard',
-        component: () => import(/* webpackChunkName: "views/dashboard" */ '../views/dashboard/index'),
-        name: 'Dashboard',
+          import(/* webpackChunkName: "views/dashboard" */ "../views/dashboard/index"),
         meta: { title: '首页', icon: 'dashboard', isCache: true, affix: true }
       }
     ]

@@ -13,7 +13,19 @@
     methods: {
       async init() {
         document.title = PUZZLE_CONFIG.appName;
+        // 获取缓存map
+        const modulesMap = await _import_map();
 
+        // 获取架构
+        let frame = await _import(
+          "frames",
+          PUZZLE_CONFIG.frame,//localStorage.getItem("frame") ||
+          modulesMap
+        );
+        this.$router.addRoutes(frame.routerStatic);
+        console.log('frame.routerStatic', frame.routerStatic);
+        // 嵌套路由 / 默认两级路由
+        let childRouter = frame.routerStatic.filter(item => item.path == "/");
         this.$store.dispatch('GetInfo').then(async response => { // 拉取user_info
           // console.log('GetInfo', response);
           // store.dispatch('RootMenusSelected', selectedCode);
@@ -25,19 +37,6 @@
           let menus = res.data;
           this.$store.commit("SET_MENUS", rootMenus);
           console.log('menus', menus);
-          // 获取缓存map
-          const modulesMap = await _import_map();
-
-          // 获取架构
-          let frame = await _import(
-            "frames",
-            PUZZLE_CONFIG.frame,//localStorage.getItem("frame") ||
-            modulesMap
-          );
-          this.$router.addRoutes(frame.routerStatic);
-          console.log('frame.routerStatic', frame.routerStatic);
-          // 嵌套路由 / 默认两级路由
-          let childRouter = frame.routerStatic.filter(item => item.path == "/");
           // Store
           for (let name in frame.store)
             this.$store.registerModule(name, frame.store[name]);
@@ -75,12 +74,12 @@
           }
           // 储存路由表
           this.$store.commit("SET_PAGES", pages);
-          // console.log('pages', pages);
+          console.log('pages', pages);
         }).catch((err) => {
-          console.log(err);
-          // this.$store.dispatch('FedLogOut').then(() => {
-          //   this.$router.push({path: '/'});
-          // });
+          console.log('this.$store.dispatch(\'GetInfo\')', err);
+          this.$store.dispatch('FedLogOut').then(() => {
+            this.$router.push({path: '/'});
+          });
         });
       }
     },

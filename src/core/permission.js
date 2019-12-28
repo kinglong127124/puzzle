@@ -41,6 +41,7 @@ router.beforeEach(async (to, from, next) => {
       next(`/login?redirect=${to.path}`); // 否则全部重定向到登录页
       NProgress.done();
     }
+    console.log('to.path', to.path);
   }
 });
 
