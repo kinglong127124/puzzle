@@ -44,7 +44,17 @@ module.exports = {
         use: ["vue-style-loader", 'css-loader', 'sass-loader']
       },
       {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        include: [resolve('src/core/icons')],
+        exclude: /node_modules/,
+        options: {
+          symbolId: 'icon-[name]'
+        }
+      },
+      {
         test: /\.(png|svg|jpg|gif)$/,
+        exclude: [resolve('src/core/icons')],
         use: [
           {
             loader: "file-loader",

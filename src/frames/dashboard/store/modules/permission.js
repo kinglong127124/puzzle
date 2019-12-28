@@ -1,6 +1,9 @@
 export default {
   state: {
-    pages: []
+    pages: [],
+    routers: [],
+    addRouters: [],
+    routesMenuLeaf: []
   },
   getters: {
     pages: state => state.pages
@@ -8,6 +11,10 @@ export default {
   mutations: {
     SET_PAGES: (state, pages) => {
       state.pages = pages;
+    },
+    SET_ROUTERS: (state, routers) => {
+      state.addRouters = routers;
+      state.routers = routers;
     }
   }
 };

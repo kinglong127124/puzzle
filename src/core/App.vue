@@ -1,5 +1,7 @@
 <template>
-    <router-view class="view"/>
+    <div id="app">
+        <router-view class="view"/>
+    </div>
 </template>
 
 <script>
@@ -74,6 +76,7 @@
           }
           // 储存路由表
           this.$store.commit("SET_PAGES", pages);
+          this.$store.commit("SET_ROUTERS", pages);
           console.log('pages', pages);
         }).catch((err) => {
           console.log('this.$store.dispatch(\'GetInfo\')', err);
