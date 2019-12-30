@@ -15,9 +15,19 @@ module.exports = {
       vue$: "vue/dist/vue.esm.js",
       "@": resolve("src"),
       "@core": resolve("src/core"),
+      '@coreApi': resolve('src/core/api'),
+      '@coreUtils': resolve('src/core/utils'),
+      '@coreMixins': resolve('src/core/utils/mixins'),
+      '@coreData': resolve('src/core/assets/data'),
+      '@coreImg': resolve('src/core/assets/img'),
+      '@corePlugins': resolve('src/core/assets/plugins'),
+      '@coreTheme': resolve('src/core/assets/theme'),
+      '@coreComponents': resolve('src/core/components'),
       "@frames": resolve("src/frames"),
       "@framesDashboard": resolve("src/frames/dashboard"),
-      "@puzzles": resolve("src/puzzles")
+      "@puzzles": resolve("src/puzzles"),
+      "@puzzlesCustormManager": resolve("src/puzzles/custormManager"),
+      "@puzzlesSysManager": resolve("src/puzzles/sysManager")
     }
   },
   module: {

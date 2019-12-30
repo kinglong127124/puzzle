@@ -15,6 +15,9 @@ export default {
     SET_ROUTERS: (state, routers) => {
       state.addRouters = routers;
       state.routers = routers;
+    },
+    SET_ROUTES_MENU_LEAF: (state, routesMenuLeaf) => {
+      state.routesMenuLeaf = routesMenuLeaf;
     }
   }
 };

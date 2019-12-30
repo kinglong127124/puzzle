@@ -14,7 +14,8 @@ export default {
       elements: state => state.user.login.elements,
       dataEnum: state => state.common.dataEnum,
       dataDictionary: state => state.common.dataDictionary,
-      dataBasic: state => state.common.dataBasic
+      dataBasic: state => state.common.dataBasic,
+      basePage: state => state.tagsView.basePage
     }),
     ...mapGetters([
       'sidebar',

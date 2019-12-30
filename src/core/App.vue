@@ -44,6 +44,7 @@
             this.$store.registerModule(name, frame.store[name]);
 
           let pages = childRouter[0].children;
+          let routesMenuLeaf = [];
           // 获取模块 / 异步获取
           for (let puzzle of rootMenus) {
             this.$set(puzzle, 'id', puzzle.code);
@@ -62,10 +63,11 @@
                 handleMenusApp(this, puzzle.children, menusRouter);
                 // console.log('menusRouter', menusRouter);
                 // 路由
-                childRouter[0].children = p
-                  .router(menusRouter, puzzle.id)
+                const pMenusRouter = p.router(menusRouter, puzzle.id);
+                childRouter[0].children = pMenusRouter
                   .concat(p.routerStatic);
                 pages.push(...childRouter[0].children);
+                routesMenuLeaf.push(...pMenusRouter);
                 this.$router.addRoutes(childRouter);
                 // Store
                 for (let name in p.store)
@@ -76,6 +78,7 @@
           }
           // 储存路由表
           this.$store.commit("SET_PAGES", pages);
+          this.$store.commit("SET_ROUTES_MENU_LEAF", routesMenuLeaf);
           this.$store.commit("SET_ROUTERS", frame.routerStatic.concat(pages));
           console.log('pages', pages, frame.routerStatic.concat(pages));
         }).catch((err) => {
