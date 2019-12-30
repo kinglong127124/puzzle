@@ -76,8 +76,8 @@
           }
           // 储存路由表
           this.$store.commit("SET_PAGES", pages);
-          this.$store.commit("SET_ROUTERS", pages);
-          console.log('pages', pages);
+          this.$store.commit("SET_ROUTERS", frame.routerStatic.concat(pages));
+          console.log('pages', pages, frame.routerStatic.concat(pages));
         }).catch((err) => {
           console.log('this.$store.dispatch(\'GetInfo\')', err);
           this.$store.dispatch('FedLogOut').then(() => {

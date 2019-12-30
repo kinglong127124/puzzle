@@ -1,7 +1,7 @@
 // 系统配置
 window.PUZZLE_CONFIG = {
   // 系统名称
-  appName: "PUZZLE DEMO",
+  appName: "超级管理",
   // 接口地址
   api: {
     frame: "/api"

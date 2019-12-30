@@ -42,8 +42,7 @@ export default {
   },
   computed: {
     visitedViews() {
-      console.log('visitedViews', this.$store.state.tagsView.visitedViews);
-      return this.$store.state.tagsView.visitedViews;
+      return this.$store.state.tagsView ? this.$store.state.tagsView.visitedViews : [];
     },
     routers() {
       return this.$store.state.permission.routers;

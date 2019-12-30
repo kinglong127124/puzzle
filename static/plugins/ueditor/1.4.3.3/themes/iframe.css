@@ -1,0 +1,10 @@
+/*可以在这里添加你自己的css*/
+.view input,.view input:active{
+  width:100%; height:24px;border: none;border-bottom: 1px solid #ddd;font-size: 14px;
+}
+.view table input[controltype='controllist']{
+  border-bottom: 1px solid #f56c6c;
+}
+.preview table input[controltype='controllist']{
+  border-bottom: 1px solid green;
+}
