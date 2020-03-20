@@ -1,9 +1,12 @@
 <template>
-    <div>
+    <div v-if="type == 'menu'&&title">
         <svg-icon :icon-class="icon.includes('icon')?icon:'iconcaozuorizhi1'"/>
-        <span v-if="type == 'menu'&&title" slot="title">{{ title }}</span>
-        <span v-if="type == 'tag'&&title">{{ title }}</span>
+        <span slot="title">{{ title }}</span>
     </div>
+    <span v-else-if="type == 'tag'&&title">
+        <svg-icon :icon-class="icon.includes('icon')?icon:'iconcaozuorizhi1'"/>
+        <span>{{ title }}</span>
+    </span>
 </template>
 <script>
 export default {
