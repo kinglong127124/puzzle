@@ -5,7 +5,7 @@
     <!--<error-log class="errLog-container left-menu-item hover-effect"/>-->
     <screenfull class="screenfull-container left-menu-item hover-effect"/>
     <!--<version class="version-container left-menu-item hover-effect"/>-->
-    <div v-if="rootMenus.length&&rootMenus.length<5" class="menu-first">
+    <div v-if="rootMenus&&rootMenus.length&&rootMenus.length<5" class="menu-first">
       <el-menu-item v-for="(item) in rootMenus" :router="true" :index="item.code.toString()" :key="item.id">
         <router-link :to="item.href" class="inlineBlock" @click.native="childrenMenus(item)"><svg-icon :icon-class="item.icon"/>{{
         item.title }}
@@ -79,7 +79,6 @@ import ErrorLog from './ErrorLog';
 import Screenfull from '@core/components/Screenfull';
 import Message from './Message';
 import Version from './Version';
-import { MessageBox } from 'element-ui';
 import Password from './password';
 export default {
   components: {
@@ -122,7 +121,7 @@ export default {
     command(command) {
       switch (command) {
         case 'home':
-          this.$router.push({ name: 'dashboardIndex' });
+          this.$router.push({ path: '/' });
           break;
         case 'logout':
           this.logout();
@@ -134,16 +133,15 @@ export default {
       }
     },
     logout() {
-      MessageBox.confirm('真的要注销登录吗？', '提示', {
+      this.$confirm('真的要注销登录吗？', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        closeOnClickModal: false,
-        closeOnPressEscape: false,
         type: 'warning'
       }).then(() => {
         this.$store.dispatch('LogOut').then(() => {
-          location.reload(); // 为了重新实例化vue-router对象 避免bug
+          this.$router.push({path: '/login'});
         });
+      }).catch(() => {
       });
     },
     childrenMenus(menu) {

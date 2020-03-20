@@ -12,7 +12,9 @@ const app = {
     screenHeight: 0,
     screenWidth: 0,
     menuItem: {},
-    cacheId: undefined// 用于列表到详情缓存
+    cacheId: undefined,// 用于列表到详情缓存
+    modulesMap:{},
+    frame:{}
   },
   mutations: {
     UPDATE_MENU_ITEM: (state, data) => {
@@ -53,6 +55,12 @@ const app = {
     },
     CACHE_ID: (state, cacheId) => {
       state.cacheId = cacheId;
+    },
+    MODULES_MAP: (state, modulesMap) => {
+      state.modulesMap = modulesMap;
+    },
+    FRAME: (state, frame) => {
+      state.frame = frame;
     }
   },
   actions: {
@@ -79,6 +87,12 @@ const app = {
     },
     cacheId({ commit }, cacheId) {
       commit('CACHE_ID', cacheId);
+    },
+    modulesMap({ commit }, modulesMap) {
+      commit('MODULES_MAP', modulesMap);
+    },
+    frame({ commit }, frame) {
+      commit('FRAME', frame);
     }
   }
 };

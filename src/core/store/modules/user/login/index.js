@@ -1,5 +1,6 @@
 import { loginByPhone, logout, getInfo } from '@framesDashboard/api/user/login';
 import { getToken, setToken, removeToken, removeKey, setCookie } from '@core/utils/auth';
+import store from '@core/store/index';
 
 const state = {
   user: '',
@@ -83,20 +84,23 @@ const actions = {
         setCookie('authCodeSuper', data.authCode);
         setCookie('userIdSuper', data.id);
         // 根菜单
-        await dispatch('RootMenus', data, { root: true });
+        if (!store.getters.isSourceLogin) {
+          await dispatch('RootMenus', data, { root: true });
+        }
+        commit('IS_SOURCE_LOGIN', false);
         // 按钮
-        const elements = {};
-        for (let i = 0; i < data.elements.length; i++) {
-          elements[data.elements[i].code] = true;
-        }
-        commit('SET_ELEMENTS', elements);
+        // const elements = {};
+        // for (let i = 0; i < data.elements.length; i++) {
+        //   elements[data.elements[i].code] = true;
+        // }
+        // commit('SET_ELEMENTS', elements);
 
-        // 菜单列表
-        const menusList = data.menus;
-        const menus = {};
-        for (let i = 0; i < menusList.length; i++) {
-          menus[menusList[i].code] = menusList[i];
-        }
+        // // 菜单列表
+        // const menusList = data.menus;
+        // const menus = {};
+        // for (let i = 0; i < menusList.length; i++) {
+        //   menus[menusList[i].code] = menusList[i];
+        // }
         // commit('SET_MENUS', menus);
         resolve(data);
       }).catch(error => {
@@ -125,7 +129,8 @@ const actions = {
     state
   }) {
     return new Promise((resolve, reject) => {
-      const params = { mobilePhone: state.mobilePhone, userId: state.sysUnitId };
+      // const params = { mobilePhone: state.mobilePhone, userId: state.sysUnitId };
+      const params = { mobilePhone: 'super', userId: '642068609136328704' };
       logout(params).then(() => {
         commit('SET_TOKEN', '');
         commit('SET_ROLES', []);

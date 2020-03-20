@@ -107,9 +107,9 @@ const layout = {
     // 是否加载完数据完毕
     IsLoadMenuData({
       commit
-    }) {
+    }, data) {
       return new Promise(resolve => {
-        commit('IS_LOADMENUDATA', true);
+        commit('IS_LOADMENUDATA', data);
       });
     },
     RootMenusLeaf({

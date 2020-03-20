@@ -5,7 +5,7 @@ export function handleMenus(obj, menus, result) {
     obj.set(item, 'page', item.href);
     obj.set(item, 'name', item.title);
     obj.set(item, 'puzzle', item.code);
-    console.log(`${item.type}`,item.code);
+    // console.log(`${item.type}`,item.code);
     if (item.type == 'menu'){
       obj.set(item, 'leaf', true);
       result.push(item)

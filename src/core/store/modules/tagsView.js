@@ -30,6 +30,7 @@ const tagsView = {
           icon: icon || ''
         })
       );
+      // console.log('state.visitedViews', state.visitedViews);
     },
     ADD_MENU_VIEW: (state, obj) => {
       const view = obj.$route;
@@ -37,26 +38,28 @@ const tagsView = {
       state.basePage.name = view.meta.title;
       state.basePage.menuCode = view.meta.menuCode || obj.$utilsBasic.getDeleteDetailInfo(view.name, view.meta.title).code;
       const routesMenuLeaf = obj.$store.state.permission.pages;
-      // 获取
-      const menuCodeObj = routesMenuLeaf.find(v => {
-        return (v.meta&&v.meta.code&&v.meta.code === state.basePage.menuCode)
-      });
-      if (menuCodeObj) {
-        const apiUrl = view.meta.apiUrl || menuCodeObj.meta.apiUrl;
-        if (apiUrl) {
-          const apiUrlArray = apiUrl.split('/');
-          state.basePage.productAlias = apiUrlArray[2];
-          state.basePage.pageCode = apiUrlArray[3];
+      if (routesMenuLeaf && routesMenuLeaf.length > 0) {
+        // 获取
+        const menuCodeObj = routesMenuLeaf.find(v => {
+          return (v.meta && v.meta.code && v.meta.code === state.basePage.menuCode)
+        });
+        if (menuCodeObj) {
+          const apiUrl = view.meta.apiUrl || menuCodeObj.meta.apiUrl;
+          if (apiUrl) {
+            const apiUrlArray = apiUrl.split('/');
+            state.basePage.productAlias = apiUrlArray[2];
+            state.basePage.pageCode = apiUrlArray[3];
+          } else {
+            state.basePage.productAlias = menuCodeObj.meta.productMark;
+            state.basePage.pageCode = state.basePage.menuCode;
+          }
+          state.basePage.menu = menuCodeObj;
         } else {
-          state.basePage.productAlias = menuCodeObj.meta.productMark;
-          state.basePage.pageCode = state.basePage.menuCode;
+          state.basePage.menu = null;
         }
-        state.basePage.menu = menuCodeObj;
-      } else {
-        state.basePage.menu = null;
+        state.basePage.route = view;
+        // console.log('state.basePage', state.basePage);
       }
-      state.basePage.route = view;
-      console.log('state.basePage', state.basePage);
     },
     ADD_CACHED_VIEW: (state, view) => {
       if (state.cachedViews.includes(view.name)) return;

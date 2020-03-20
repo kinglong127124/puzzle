@@ -256,20 +256,22 @@ export default {
                 localStorage.setItem('username', '');
                 localStorage.setItem('password', '');
               }
-              // 根菜单
-              const menuDataAll = await this.$store.dispatch('RootMenus', { root: true });
-              if (this.$utils.isEmpty(menuDataAll)) {
-                Message({
-                  message: '暂无功能权限，请联系管理员！',
-                  type: 'error'
-                });
-                return;
-              }
-              const rootMenusSelected = this.$store.getters.rootMenusSelected;
-              setTimeout(() => {
-                this.$store.dispatch('RootMenusLeaf', { menuDataAll });
-              }, 0);
+              // // 根菜单
+              // const menuDataAll = await this.$store.dispatch('RootMenus', { root: true });
+              // if (this.$utils.isEmpty(menuDataAll)) {
+              //   Message({
+              //     message: '暂无功能权限，请联系管理员！',
+              //     type: 'error'
+              //   });
+              //   return;
+              // }
+              // const rootMenusSelected = this.$store.getters.rootMenusSelected;
+              // setTimeout(() => {
+              //   this.$store.dispatch('RootMenusLeaf', { menuDataAll });
+              // }, 0);
               // this.$router.push({ path: rootMenusSelected.href, query: this.otherQuery });
+              this.$store.dispatch('IsSourceLogin', true);
+              this.$store.dispatch('IsLoadMenuData', false);
               this.$router.push({ path: '/', query: this.otherQuery });
             } else {
               localStorage.setItem('username', '');

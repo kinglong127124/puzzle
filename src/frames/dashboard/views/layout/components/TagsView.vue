@@ -12,7 +12,7 @@
         @click.middle.native="closeSelectedTag(tag)"
         @contextmenu.prevent.native="openMenu(tag,$event)">
         <item :icon="tag.meta.icon" :title="tag.title" type="tag"/>
-        <span v-if="!tag.meta.affix" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
+        <span v-if="!tag.meta.affix" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)"/>
       </router-link>
     </scroll-pane>
     <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
@@ -62,8 +62,10 @@ export default {
     }
   },
   mounted() {
-    this.initTags();
-    this.addTags();
+    setTimeout(() => {
+      this.initTags();
+      this.addTags();
+    }, 100)
   },
   methods: {
     isActive(route) {
@@ -71,30 +73,34 @@ export default {
     },
     filterAffixTags(routes, basePath = '/') {
       let tags = [];
-      routes.forEach(route => {
-        if (route.meta && route.meta.affix) {
-          tags.push({
-            path: path.resolve(basePath, route.path),
-            name: route.name,
-            meta: { ...route.meta }
-          });
-        }
-        if (route.children) {
-          const tempTags = this.filterAffixTags(route.children, route.path);
-          if (tempTags.length >= 1) {
-            tags = [...tags, ...tempTags];
+      if(routes){
+        routes.forEach(route => {
+          if (route.meta && route.meta.affix) {
+            tags.push({
+              path: path.resolve(basePath, route.path),
+              name: route.name,
+              meta: { ...route.meta }
+            });
           }
-        }
-      });
-
+          if (route.children) {
+            const tempTags = this.filterAffixTags(route.children, route.path);
+            if (tempTags.length >= 1) {
+              tags = [...tags, ...tempTags];
+            }
+          }
+        });
+      }
       return tags;
     },
     initTags() {
-      const affixTags = this.affixTags = this.filterAffixTags(this.routers);
-      for (const tag of affixTags) {
-        // Must have tag name
-        if (tag.name) {
-          this.$store.dispatch('addVisitedView', tag);
+      console.log('this.routers',this.routers);
+      if (this.routers && this.routers.length > 0) {
+        const affixTags = this.affixTags = this.filterAffixTags(this.routers);
+        for (const tag of affixTags) {
+          // Must have tag name
+          if (tag.name) {
+            this.$store.dispatch('addVisitedView', tag);
+          }
         }
       }
     },
@@ -133,7 +139,7 @@ export default {
       });
     },
     closeSelectedTag(view) {
-      this.$store.dispatch('delView', this).then(({ visitedViews }) => {
+      this.$store.dispatch('delView', view).then(({ visitedViews }) => {
         if (this.isActive(view)) {
           this.toLastView(visitedViews);
         }

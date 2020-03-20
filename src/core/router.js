@@ -77,4 +77,6 @@ function markScroll(to, from, next) {
 // 错误捕获
 // router.onError(err => { });
 
+
+console.log('router', 'router');
 export default router;

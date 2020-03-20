@@ -28,10 +28,10 @@ export default [
       {
         path: "/",
         redirect: "/dashboard",
-        name: 'dashboard'
       },
       {
         path: "/dashboard",
+        name: 'dashboard',
         component: () =>
           import(/* webpackChunkName: "views/dashboard" */ "../views/dashboard/index"),
         meta: { title: '首页', icon: 'dashboard', isCache: true, affix: true }
@@ -41,5 +41,6 @@ export default [
   {
     path: '/404',
     component: () => import(/* webpackChunkName: "views/errorPage" */ '../views/errorPage/404')
-  }
+  },
+  { path: '*', redirect: '/404', hidden: true }
 ];
