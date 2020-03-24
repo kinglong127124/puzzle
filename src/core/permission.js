@@ -61,7 +61,9 @@ router.beforeEach(async (to, from, next) => {
           let childRouter = frame.routerStatic.filter(item => item.path == "/");
           //动态加载Store
           for (let name in frame.store)
+          {
             store.registerModule(name, frame.store[name]);
+          }
           let pages = childRouter[0].children;
           let routesMenuLeaf = [];
           console.time('模块加载');
@@ -90,6 +92,7 @@ router.beforeEach(async (to, from, next) => {
                 routesMenuLeaf.push(...pMenusRouter);
                 router.addRoutes(childRouter);
                 // Store
+                debugger;
                 for (let name in p.store)
                   store.registerModule(name, p.store[name]);
               })

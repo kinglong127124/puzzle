@@ -6,7 +6,7 @@ import methods from '@core/utils/mixins/methods';
 import formatBasic from '@core/utils/mixins/formatBasic';
 import formatEnum from '@core/utils/mixins/formatEnum';
 import { arrayUniqueSameObj, deepCloneByObject } from '@core/utils';
-import { staticDataBasic } from '@/assets/data/basic';
+import { staticDataBasic } from '@coreData/basic';
 import api from '@core/api/common';
 
 export default {

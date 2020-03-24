@@ -17,6 +17,7 @@ export default function (menusRouter, puzzleName) {
     router.push({
       name: item.id,
       path: "/" + puzzleName + "/" + page,
+      // path: "/" + puzzleName + "/" + item.path,
       component: () =>
         import(
           /* webpackChunkName: "views/[request]" */

@@ -1,4 +1,4 @@
-import utils from '@core/utils/util';
+import utils from '@coreUtils/util';
 
 /**
  * 常用方法，页面自动导入方式
@@ -322,8 +322,8 @@ basic.isIe = function(version) {
 /**
  *  判断浏览器终端类型
  */
-basic.browserTerminal = function() {
-  var u = window.navigator.userAgent;
+basic.browserTerminal = function(ua) {
+  var u = ua || window.navigator.userAgent;
   var browserClass = {
     trident: u.indexOf('Trident') > -1, // IE内核
     presto: u.indexOf('Presto') > -1, // opera内核
@@ -337,9 +337,55 @@ basic.browserTerminal = function() {
     webApp: u.indexOf('Safari') == -1, // 是否web应该程序，没有头部与底部
     weixin: u.indexOf('MicroMessenger') > -1, // 是否微信
     qq: u.match(/\sQQ/i) == ' qq', // 是否QQ
-    ie: u.indexOf('Trident') > -1 || u.indexOf('MSIE') > -1 || u.indexOf('compatible') > -1
+    ie: u.indexOf('Trident') > -1 || u.indexOf('MSIE') > -1 || u.indexOf('compatible') > -1,
+    postMan: u.indexOf('PostmanRuntime') > -1
   };
   return browserClass;
+};
+/**
+ *  判断浏览器终端类型
+ */
+basic.formatBrowserTerminal = function(ua) {
+  const data = {
+    terminal: '',
+    browser: '',
+    terminalType: {}
+  };
+  data.terminalType = basic.browserTerminal(ua);
+  if (
+    data.terminalType.ios ||
+    data.terminalType.iPhone ||
+    data.terminalType.iPad
+  ) {
+    data.terminal = '苹果';
+  } else if (data.terminalType.android) {
+    data.terminal = '安卓';
+  } else {
+    data.terminal = 'PC';
+  }
+  if (/msie/i.test(ua) && !/opera/.test(ua)) {
+    data.browser = 'IE';
+  } else if (/firefox/i.test(ua)) {
+    data.browser = 'Firefox';
+  } else if (/chrome/i.test(ua) && /webkit/i.test(ua) && /mozilla/i.test(ua)) {
+    data.browser = 'Chrome';
+  } else if (/opera/i.test(ua)) {
+    data.browser = 'Opera';
+  } else if (/iPad/i.test(ua)) {
+    data.browser = 'iPad';
+  } else if (
+    /webkit/i.test(ua) &&
+    !(/chrome/i.test(ua) && /webkit/i.test(ua) && /mozilla/i.test(ua))
+  ) {
+    data.browser = 'Safari';
+  } else if (
+    /Postman/i.test(ua)
+  ) {
+    data.browser = 'Postman';
+  } else {
+    data.browser = '未知';
+  }
+  return data;
 };
 /**
  * 数字千分位格式化
@@ -351,30 +397,21 @@ basic.formatNumber = function(num) {
   return (num + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
 };
 
-/**
- * 字节容量格式化
- * @param value
- * @param row
- * @param index
- * @returns {string}
- */
-basic.formatByte = function(value, row, index) {
-  // 各字节容量大小
-  var byte1k = 1024;
-  var byte1M = byte1k * byte1k;
-  var byte1G = byte1M * byte1k;
-  var byte1T = byte1G * byte1k;
-  if (value < byte1k) {
-    return basic.formatNumber(value) + '字节';
-  } else if (value < byte1M) {
-    return basic.formatNumber((value / byte1k).toFixed(2)) + 'K';
-  } else if (value < byte1G) {
-    return basic.formatNumber((value / byte1M).toFixed(2)) + 'M';
-  } else if (value < byte1T) {
-    return basic.formatNumber((value / byte1G).toFixed(2)) + 'G';
-  } else {
-    return basic.formatNumber((value / byte1T).toFixed(2)) + 'T';
+// 格式化文件大小 单位：Bytes、KB、MB、GB
+basic.formatByte = function(value) {
+  if (value == null || value == '') {
+    return '0 Bytes';
   }
+  var unitArr = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  var index = 0;
+  var srcsize = parseFloat(value);
+  index = Math.floor(Math.log(srcsize) / Math.log(1024));
+  var size = srcsize / Math.pow(1024, index);
+  size = size.toFixed(2);
+  if (unitArr[index]) {
+    return size + unitArr[index];
+  }
+  return '文件太大';
 };
 /**
  *  将数值四舍五入后格式化.

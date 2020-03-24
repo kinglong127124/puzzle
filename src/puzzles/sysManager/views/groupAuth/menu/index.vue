@@ -230,7 +230,7 @@ import computed from '@coreMixins/computed';
 import methods from '@coreMixins/methods';
 import {
   fetchTree, getObj, addObj, delObj, putObj, getCrmProductInfoAll
-} from '@puzzlesSysManager/api/groupAuth/menu/index';
+} from '@puzzlesSys/api/groupAuth/menu/index';
 import { mapState } from 'vuex';
 import splitPane from 'vue-splitpane';
 import { staticDataBasic } from '@coreData/basic';
@@ -397,7 +397,9 @@ export default {
       if (productId) {
         this.form.productId = productId;
       }
-      this.$refs.refMenuElement.list = [];
+      if (this.$refs.refMenuElement) {
+        this.$refs.refMenuElement.list = [];
+      }
     },
     handlerAdd() {
       if (this.currentId == -1) {
@@ -414,7 +416,9 @@ export default {
       if (productId) {
         this.form.productId = productId;
       }
-      this.$refs.refMenuElement.list = [];
+      if (this.$refs.refMenuElement) {
+        this.$refs.refMenuElement.list = [];
+      }
     },
     handleDelete() {
       this.$confirm('亲，您是否确定删除当前数据，删除后数据不能恢复！', '提示', {

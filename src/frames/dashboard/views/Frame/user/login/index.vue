@@ -101,14 +101,14 @@
 import ElForm from 'element-ui/packages/form/src/form';
 import ElFormItem from 'element-ui/packages/form/src/form-item';
 import { Message } from 'element-ui';
-import { validateLength } from '../../../utils/validate';
-import { addClass } from 'utils/index';
+import { validateLength } from '@coreUtils/validate';
+import { addClass } from '@coreUtils/index';
 import {
   getCode,
   qrcodeLoginCheck,
   abortRequest
-} from 'api/user/login';
-import { setToken } from 'utils/auth';
+} from '@core/api/user/login';
+import { setToken } from '@coreUtils/auth';
 
 export default {
   name: 'Login',

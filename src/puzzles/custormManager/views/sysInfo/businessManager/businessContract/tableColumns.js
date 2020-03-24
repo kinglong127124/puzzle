@@ -1,0 +1,64 @@
+export const tableColumns = {
+  listColumns: [
+    {
+      text: '审核状态',
+      value: 'validateStatus',
+      width: '80',
+      align: 'center'
+    }, {
+      text: '合同编号',
+      value: 'code',
+      width: '130',
+      align: 'center',
+      showOverflowTooltip: true
+    }, {
+      text: '合同名称',
+      value: 'name',
+      minWidth: 200,
+      align: 'left',
+      headerAlign: 'center',
+      showOverflowTooltip: true
+    }, {
+      text: '甲方单位',
+      value: 'serviceOrgName',
+      width: 200,
+      align: 'left',
+      headerAlign: 'center',
+      showOverflowTooltip: true
+    }, {
+      text: '乙方单位',
+      value: 'useOrgName',
+      width: 200,
+      align: 'left',
+      headerAlign: 'center',
+      showOverflowTooltip: true
+    }, {
+      text: '签约日期',
+      value: 'signDate',
+      width: '130',
+      align: 'center',
+      headerAlign: 'center',
+      showOverflowTooltip: true
+    }, {
+      text: '签约金额',
+      value: 'signPrice',
+      width: '150',
+      align: 'right',
+      headerAlign: 'center',
+      showOverflowTooltip: true
+    }, /* {
+      text: '登记人员',
+      value: 'inputPerson',
+      width: '100',
+      align: 'center',
+      headerAlign: 'center',
+      showOverflowTooltip: true
+    }, */{
+      text: '登记时间',
+      value: 'inputTime',
+      width: '160',
+      align: 'center',
+      headerAlign: 'center',
+      showOverflowTooltip: true
+    }]
+};

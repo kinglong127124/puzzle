@@ -127,6 +127,34 @@ export default {
           return cellValue;
         }
       }
+    },
+    /**
+     * 格式化浏览器类型
+     */
+    formatBrowserTerminal(row, column, cellValue) {
+      if (typeof row === 'string') {
+        if (row) {
+          const browser = this.$utilsBasic.formatBrowserTerminal(row);
+          if (browser.terminal == 'PC') {
+            return browser.terminal + ' | ' + browser.browser;
+          } else {
+            return browser.terminal;
+          }
+        } else {
+          return row;
+        }
+      } else if (typeof row === 'object') {
+        if (row && cellValue) {
+          const browser = this.$utilsBasic.formatBrowserTerminal(cellValue);
+          if (browser.terminal == 'PC') {
+            return browser.terminal + ' | ' + browser.browser;
+          } else {
+            return browser.terminal;
+          }
+        } else {
+          return cellValue;
+        }
+      }
     }
   }
 };

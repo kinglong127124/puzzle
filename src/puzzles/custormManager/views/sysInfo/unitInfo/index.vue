@@ -61,7 +61,7 @@
   import formatBasic from '@coreMixins/formatBasic';
   import formatEnum from '@coreMixins/formatEnum';
   import { staticDataBasic } from '@coreData/basic';
-  import api from '@puzzlesCustormManager/api/sysInfo/unitInfo';
+  import api from '@puzzlesCustorm/api/sysInfo/unitInfo';
 
   export default {
     name: 'UnitInfoFront',

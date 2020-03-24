@@ -89,11 +89,11 @@ const actions = {
         }
         commit('IS_SOURCE_LOGIN', false);
         // 按钮
-        // const elements = {};
-        // for (let i = 0; i < data.elements.length; i++) {
-        //   elements[data.elements[i].code] = true;
-        // }
-        // commit('SET_ELEMENTS', elements);
+        const elements = {};
+        for (let i = 0; i < data.elements.length; i++) {
+          elements[data.elements[i].code] = true;
+        }
+        commit('SET_ELEMENTS', elements);
 
         // // 菜单列表
         // const menusList = data.menus;

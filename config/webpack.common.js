@@ -22,12 +22,14 @@ module.exports = {
       '@coreImg': resolve('src/core/assets/img'),
       '@corePlugins': resolve('src/core/assets/plugins'),
       '@coreTheme': resolve('src/core/assets/theme'),
-      '@coreComponents': resolve('src/core/components'),
+      '@coreComp': resolve('src/core/components'),
       "@frames": resolve("src/frames"),
       "@framesDashboard": resolve("src/frames/dashboard"),
+      '@framesDashboardViews': resolve('src/frames/dashboard/views'),
+      '@framesDashboardViewsComp': resolve('src/frames/dashboard/views/components'),
       "@puzzles": resolve("src/puzzles"),
-      "@puzzlesCustormManager": resolve("src/puzzles/custormManager"),
-      "@puzzlesSysManager": resolve("src/puzzles/sysManager")
+      "@puzzlesCustorm": resolve("src/puzzles/custormManager"),
+      "@puzzlesSys": resolve("src/puzzles/sysManager")
     }
   },
   module: {

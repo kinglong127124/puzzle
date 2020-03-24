@@ -130,7 +130,7 @@ import {
   getObj,
   delObj,
   putObj
-} from '@puzzlesSysManager/api/groupAuth/element/index';
+} from '@puzzlesSys/api/groupAuth/element/index';
 import { mapState } from 'vuex';
 import { staticDataBasic } from '@coreData/basic';
 export default {
