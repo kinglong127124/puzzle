@@ -14,6 +14,24 @@
     name: "app",
     methods: {
       async init() {
+        console.log('this.$router', this.$router);
+        if(!this.$store.getters.frame.routerStatic){
+          document.title = PUZZLE_CONFIG.appName;
+          // 获取缓存map
+          const modulesMap = await _import_map();
+
+          // 获取架构
+          let frame = await _import(
+            "frames",
+            PUZZLE_CONFIG.frame,//localStorage.getItem("frame") ||
+            modulesMap
+          );
+          this.$router.addRoutes(frame.routerStatic);
+          console.log('frame.routerStatic', frame.routerStatic);
+          this.$store.commit("MODULES_MAP", modulesMap);
+          this.$store.commit("FRAME", frame);
+        }
+
         // console.time('async init');
         // document.title = PUZZLE_CONFIG.appName;
         // // 获取缓存map

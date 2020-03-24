@@ -14,7 +14,6 @@ NProgress.configure({showSpinner: false});// NProgress Configuration
 
 const whiteList = ['/login', '/auth-redirect', '/register', '/choose', '/forgetPassword'];// no redirect whitelist
 
-console.log('permission', 'permission');
 router.beforeEach(async (to, from, next) => {
   NProgress.start(); // start progress bar
   if (getToken()) { // determine if there has token
@@ -33,24 +32,22 @@ router.beforeEach(async (to, from, next) => {
       if (!store.getters.isLoadMenuData) { // 判断当前用户是否已拉取完user_info信息
         store.dispatch('IsLoadMenuData', true);
         console.log('IsLoadMenuData', true);
-        console.time('async init');
-        document.title = PUZZLE_CONFIG.appName;
-        // 获取缓存map
-        const modulesMap = await _import_map();
+        if(!store.getters.frame.routerStatic){
+          document.title = PUZZLE_CONFIG.appName;
+          // 获取缓存map
+          const modulesMap = await _import_map();
 
-        // 获取架构
-        let frame = await _import(
-          "frames",
-          PUZZLE_CONFIG.frame,//localStorage.getItem("frame") ||
-          modulesMap
-        );
-        router.addRoutes(frame.routerStatic);
-        console.log('frame.routerStatic', frame.routerStatic);
-        store.commit("MODULES_MAP", modulesMap);
-        store.commit("FRAME", frame);
-        let rootMenus = store.getters.rootMenus;
-        console.log('rootMenus', rootMenus);
-        console.timeEnd('async init');
+          // 获取架构
+          let frame = await _import(
+            "frames",
+            PUZZLE_CONFIG.frame,//localStorage.getItem("frame") ||
+            modulesMap
+          );
+          router.addRoutes(frame.routerStatic);
+          console.log('frame.routerStatic', frame.routerStatic);
+          store.commit("MODULES_MAP", modulesMap);
+          store.commit("FRAME", frame);
+        }
         store.dispatch('GetInfo').then(async response => { // 拉取user_info
           // 保存菜单
           let rootMenus = store.getters.rootMenus;
