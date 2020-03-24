@@ -1,9 +1,9 @@
 import request from '@coreUtils/request';
 
-export function userSearch(name) {
+export function page(query) {
   return request({
-    url: '/search/user',
+    url: '/api/admin/sysLog/page',
     method: 'get',
-    params: { name }
+    params: query
   });
 }

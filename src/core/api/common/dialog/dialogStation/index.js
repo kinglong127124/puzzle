@@ -1,4 +1,4 @@
-import request from '@core/utils/request';
+import request from '@coreUtils/request';
 
 export function getStationTreeData() {
   return request({

@@ -1,4 +1,4 @@
-import request from '@core/utils/request';
+import request from '@coreUtils/request';
 
 /**
  * 获取所有数据（单表使用）

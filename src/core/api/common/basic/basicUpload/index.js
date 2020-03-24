@@ -1,4 +1,4 @@
-import request from '@core/utils/request';
+import request from '@coreUtils/request';
 
 /**
  * 根据(附件表)的主键id查询列表

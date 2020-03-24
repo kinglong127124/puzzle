@@ -11,7 +11,7 @@ Vue.use(VueRouter);
 // 创建一个路由器实例
 const router = new VueRouter({
   mode: "hash",
-  base: "__dirname",
+  // base: "__dirname",
   routes: [],
   // 设置滚动条位置
   scrollBehavior: to => {

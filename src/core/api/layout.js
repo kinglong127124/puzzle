@@ -1,4 +1,4 @@
-import request from '@core/utils/request';
+import request from '@coreUtils/request';
 
 /* 获取主菜单列表*/
 export function getAllMenus() {

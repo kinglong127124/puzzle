@@ -1,4 +1,4 @@
-import request from '@core/utils/request';
+import request from '@coreUtils/request';
 /**
  * 除开枚举，数据字典，系统管理在内的其他数据
  */

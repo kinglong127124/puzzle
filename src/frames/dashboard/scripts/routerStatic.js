@@ -39,6 +39,22 @@ export default [
     ]
   },
   {
+    name: "custormManager",
+    path: "/custormManager",
+    redirect: '/custormManager/index',
+    meta: { title: '客户管理-首页', icon: 'dashboard', isCache: true, affix: false },
+    component: () =>
+      import(/* webpackChunkName: "views/[request]" */ `../views/layout/Layout`)
+  },
+  {
+    name: "sysManager",
+    path: "/sysManager",
+    redirect: '/sysManager/index',
+    meta: { title: '系统管理-首页', icon: 'dashboard', isCache: true, affix: false },
+    component: () =>
+      import(/* webpackChunkName: "views/[request]" */ `../views/layout/Layout`)
+  },
+  {
     path: '/404',
     component: () => import(/* webpackChunkName: "views/errorPage" */ '../views/errorPage/404')
   },

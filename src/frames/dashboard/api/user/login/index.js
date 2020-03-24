@@ -1,4 +1,4 @@
-import request from '@core/utils/request';
+import request from '@coreUtils/request';
 import axios from 'axios';
 var CancelToken = axios.CancelToken;
 var cancel;

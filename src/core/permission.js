@@ -52,6 +52,7 @@ router.beforeEach(async (to, from, next) => {
           // 保存菜单
           let rootMenus = store.getters.rootMenus;
           store.commit("SET_MENUS", rootMenus);
+          console.log('rootMenus', rootMenus);
           //动态加载
           let modulesMap = store.getters.modulesMap;
           let frame = store.getters.frame;

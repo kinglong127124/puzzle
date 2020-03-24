@@ -1,4 +1,11 @@
 export default [
+  {
+    name: "custormManagerIndex",
+    path: "/custormManager/index",
+    meta: { title: '客户管理-首页', icon: 'dashboard', isCache: true, affix: false },
+    component: () =>
+      import(/* webpackChunkName: "views/[request]" */ `../views/index`)
+  },
   // {
   //   name: "productManagerDetail",
   //   path: "/custormManager/sysInfo/productManager/id/:id*",
