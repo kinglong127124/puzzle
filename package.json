@@ -13,8 +13,9 @@
   },
   "dependencies": {
     "@babel/runtime": "7.4.5",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "axios": "0.19.0",
-    "element-ui": "2.4.11",
+    "element-ui": "2.13.0",
     "js-cookie": "2.2.0",
     "loadjs": "3.6.1",
     "minireset.css": "0.0.5",
@@ -31,8 +32,12 @@
   "devDependencies": {
     "@babel/core": "7.4.4",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
+    "@babel/plugin-syntax-jsx": "^7.8.3",
     "@babel/plugin-transform-runtime": "7.4.4",
     "@babel/preset-env": "7.4.4",
+    "@babel/preset-react": "^7.9.4",
+    "@vue/babel-plugin-transform-vue-jsx": "^1.1.2",
+    "@vue/component-compiler-utils": "^3.1.1",
     "babel-loader": "8.0.6",
     "babel-polyfill": "6.26.0",
     "clean-webpack-plugin": "2.0.2",

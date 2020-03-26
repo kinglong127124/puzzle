@@ -98,8 +98,8 @@
 </template>
 
 <script>
-import ElForm from 'element-ui/packages/form/src/form';
-import ElFormItem from 'element-ui/packages/form/src/form-item';
+// import ElForm from 'element-ui/packages/form/src/form.vue';
+// import ElFormItem from 'element-ui/packages/form/src/form-item.vue';
 import { Message } from 'element-ui';
 import { validateLength } from '@core/utils/validate';
 import { addClass } from '@core/utils/index';
@@ -112,10 +112,10 @@ import {
 
 export default {
   name: 'Login',
-  components: {
-    ElFormItem,
-    ElForm
-  },
+  // components: {
+  //   ElFormItem,
+  //   ElForm
+  // },
   data() {
     return {
       // 记住密码
