@@ -550,7 +550,6 @@ export default {
        * 获取类型数据
        * */
     getSysTypeDataDictionary(callback) {
-      debugger
       return this.$store.dispatch('GetSysConfigDataDictionary', this.modelSearchFilter)
         .then((res) => {
           this.total = res.data.total;

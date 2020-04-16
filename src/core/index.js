@@ -9,7 +9,6 @@ import Element from 'element-ui';
 // import 'element-ui/lib/theme-chalk/index.css'
 import '@core/assets/theme/chalk/index.css';
 import '@core/icons'; // icon
-import '@core/assets/plugins/iconfont/iconfont.css';
 import '@core/styles/index.scss'; // global css
 
 // 接口

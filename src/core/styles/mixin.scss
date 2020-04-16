@@ -196,3 +196,20 @@ space-around：每个项目两侧的间隔相等。所以，项目之间的间�
   -ms-flex: $param;              /* IE 10 */
   flex: $param;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
+
+//div内显示一行，超出部分用省略号显示
+@mixin text-overflow{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+//div内显示两行或三行，超出部分用省略号显示
+@mixin text-overflow2{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}

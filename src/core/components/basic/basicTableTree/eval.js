@@ -39,17 +39,11 @@ export function addAttrs(data, { parent = null, preIndex = false, treeCode = '',
       Vue.set(item, 'treeRowParent', parent);
     }
     Vue.set(item, 'treeRowShow', false);
-
-    if (item.treeRowSelect == undefined) {
-      Vue.set(item, 'treeRowSelect', select);
-    }
-    if (item.treeRowSelectDisabled == undefined) {
-      Vue.set(item, 'treeRowSelectDisabled', false);
-    }
-    Vue.set(item, 'persistStatus', 'nrm');
+    Vue.set(item, 'treeRowSelect', select);
     if (item.treeRowVisible == undefined) {
       Vue.set(item, 'treeRowVisible', true);
     }
+    Vue.set(item, 'persistStatus', 'nrm');
     tmp.push(item);
     if (item[children] && item[children].length > 0) {
       if (isLoadAll) {

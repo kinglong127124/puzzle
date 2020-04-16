@@ -42,7 +42,6 @@ html {
 .padding-content {
   padding: 4px 0;
 }
-
 a{
   cursor: pointer;
   color: #409eff;
@@ -156,10 +155,13 @@ code {
 .text-center {
   text-align: center !important;
 }
+.text-right {
+  text-align: right !important;
+}
 .margin-top0 {
   margin-top: 0 !important;
 }
-.margin-top-5{
+.margin-top5{
   margin-top: -5px !important;
 }
 .margin-top10 {
@@ -170,6 +172,9 @@ code {
 }
 .margin-top-10{
   margin-top: -10px !important;
+}
+.margin-right50{
+  margin-right: 50px !important;
 }
 .float-none{
   float: none !important;
@@ -253,8 +258,14 @@ code {
     @include display-flex;
     align-items:center;
     justify-content: space-between;
+    >div{
+      max-width: 95%;
+    }
     .el-button{
       margin-bottom: 0;
+    }
+    .el-tag{
+      margin-right: 6px;
     }
   }
   .el-form-item:last-child{
@@ -274,7 +285,7 @@ code {
 }
 .handler-container{
   background: #ffffff;
-  margin-bottom: 2px;
+  margin-bottom: 0;
   overflow:hidden;
   @include bottom-space;
   @include el-button-space;
@@ -307,7 +318,10 @@ code {
   }
   .el-form--inline.form-inline-search.left{
     .el-form-item{
-      margin-bottom: 0px;
+      margin-bottom: 5px;
+      .el-form-item__label{
+        padding-right: 4px;
+      }
       .el-form-item__content .el-input-group__append{
         border-radius: 0;
         padding: 0 4px;
@@ -328,8 +342,8 @@ code {
 .content-container{
   background-color: #F5F5F5;
   border: 1px solid #DCDFE6;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 5px;
+  margin-top: 2px;
   .handler-container{
     background-color: transparent;
   }
@@ -340,13 +354,17 @@ code {
     .el-table--fit,.table-list-cell {
       border: none
     }
-    i.square{
+    span.button {
+      color: #409EFF;
+      height: 34px;
+      line-height: 34px;
+    }
+    span .el-icon-custorm-square{
       width: 4px;
       height: 4px;
       background-color: #488BFF;
       display: inline-block;
-      margin-left: 12px;
-      margin-right: -8px;
+      margin-right: 2px;
       vertical-align: middle;
     }
   }
@@ -363,7 +381,6 @@ code {
   }
   .left-container, .right-container {
     height: 100%;
-    min-width: 200px;
     border: 1px solid #DCDFE6;
     background: #F3F6FA;
     padding: 10px;
@@ -388,11 +405,11 @@ code {
       @include display-flex;
       @include flex-direction-column;
       overflow: auto;
-      .table-container,.video-container{
+      .table-container,.video-container,.list-container{
         @include display-flex;
         @include flex-direction-column;
       }
-      > .el-table,.table-container,.video-container{
+      > .el-table,.table-container,.video-container,.list-container{
         @include flex(1);
       }
       .video-container{
@@ -429,10 +446,14 @@ code {
     height: calc(100vh - 120px);
     @include display-flex;
     @include flex-direction-column;
-    > .el-table,.table-container{
+    > .el-table,.table-container,.list-container{
       @include display-flex;
       @include flex-direction-column;
       @include flex(1);
+    }
+    .list-container{
+      height: 500px;
+      overflow: auto;
     }
   }
 }
@@ -440,15 +461,14 @@ code {
 .el-collapse {
   border: 1px solid #DCDFE6;
   .el-collapse-item__header {
-    height: 32px;
-    line-height: 32px;
+    height:20px;
+    line-height: 30px;
     background: #ecf5ff;
     padding-left: 10px;
     font-weight: bolder;
-    border-bottom-color: #dcdfe6;
   }
   .el-collapse-item__content {
-    padding: 10px;
+    padding: 5px;
     .form-container {
       margin-botton: 0;
       &.bottom-height .el-row{
@@ -500,6 +520,15 @@ code {
   }
 }
 
+.money-unit{
+  font-size: 14px;
+  color:#606266;
+   &.money-position{
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+   }
+}
 //refine vue-multiselect plugin
 .multiselect {
   line-height: 16px;
@@ -520,6 +549,14 @@ code {
   .handler-container .el-button,.file .upload{
     [class*=" el-icon-"], [class^=el-icon-],[class^="if-icon"], [class*=" if-icon"] {
       display: inline-block;
+    }
+  }
+}
+/*兼容 ie10 ie11*/
+@media screen and(-ms-high-contrast:active),(-ms-high-contrast:none){
+  .form-container {
+    .el-form-item--medium {
+      min-height: 32px;
     }
   }
 }

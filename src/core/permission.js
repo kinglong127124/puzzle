@@ -92,7 +92,6 @@ router.beforeEach(async (to, from, next) => {
                 routesMenuLeaf.push(...pMenusRouter);
                 router.addRoutes(childRouter);
                 // Store
-                debugger;
                 for (let name in p.store)
                   store.registerModule(name, p.store[name]);
               })
