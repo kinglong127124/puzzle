@@ -4,7 +4,7 @@ export function handleMenus(obj, menus, result) {
     obj.set(item, 'id', item.code);
     obj.set(item, 'page', item.href);
     obj.set(item, 'name', item.title);
-    obj.set(item, 'puzzle', item.code);
+    obj.set(item, 'product', item.code);
     // console.log(`${item.type}`,item.code);
     if (item.type == 'menu'){
       obj.set(item, 'leaf', true);
@@ -20,7 +20,7 @@ export function handleMenusApp(obj, menus, result) {
     obj.$set(item, 'id', item.code);
     obj.$set(item, 'page', item.href);
     obj.$set(item, 'name', item.title);
-    obj.$set(item, 'puzzle', item.code);
+    obj.$set(item, 'product', item.code);
     // console.log(`${item.type}`,item.code);
     if (item.type == 'menu'){
       obj.$set(item, 'leaf', true);

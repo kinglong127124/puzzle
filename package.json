@@ -1,5 +1,5 @@
 {
-  "name": "puzzle_demo",
+  "name": "product",
   "version": "0.1.0",
   "description": "A vue project",
   "author": "GengFei <im.gf@live.com>",
@@ -9,7 +9,7 @@
     "dll": "webpack --config config/webpack.build.dll.js --mode production",
     "core": "webpack --hide-modules --config config/webpack.build.core.js",
     "frame": "webpack --hide-modules --config config/webpack.build.frame.js",
-    "puzzle": "webpack --hide-modules --config config/webpack.build.puzzle.js"
+    "product": "webpack --hide-modules --config config/webpack.build.product.js"
   },
   "dependencies": {
     "@babel/runtime": "7.4.5",

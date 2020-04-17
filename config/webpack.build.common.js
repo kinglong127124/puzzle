@@ -6,25 +6,25 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 // 路径获取
 const resolve = require("./utils").resolve;
 
-module.exports = function(type, puzzle) {
+module.exports = function(type, product) {
   let entry = {};
-  entry[puzzle] = `./src/${type}/${puzzle}/`;
+  entry[product] = `./src/${type}/${product}/`;
 
   const webpackConfig = {
     mode: "production",
     entry,
     output: {
-      path: resolve(`dist/${type}/${puzzle}`),
-      publicPath: `./${type}/${puzzle}/`,
+      path: resolve(`dist/${type}/${product}`),
+      publicPath: `./${type}/${product}/`,
       filename: "[name].[contenthash].js",
-      library: `${type}_${puzzle}`,
+      library: `${type}_${product}`,
       libraryTarget: "umd"
     },
     // devtool: "source-map",
     plugins: [
       new CleanWebpackPlugin(),
       // 解决动态模块导入打包重名的问题
-      new webpack.NamedChunksPlugin(chunk => puzzle + "/" + chunk.name)
+      new webpack.NamedChunksPlugin(chunk => product + "/" + chunk.name)
     ]
   };
 
