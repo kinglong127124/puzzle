@@ -33,14 +33,14 @@ router.beforeEach(async (to, from, next) => {
         store.dispatch('IsLoadMenuData', true);
         console.log('IsLoadMenuData', true);
         if(!store.getters.frame.routerStatic){
-          document.title = PUZZLE_CONFIG.appName;
+          document.title = PRODUCT_CONFIG.appName;
           // 获取缓存map
           const modulesMap = await _import_map();
 
           // 获取架构
           let frame = await _import(
             "frames",
-            PUZZLE_CONFIG.frame,//localStorage.getItem("frame") ||
+            PRODUCT_CONFIG.frame,//localStorage.getItem("frame") ||
             modulesMap
           );
           router.addRoutes(frame.routerStatic);
@@ -68,24 +68,24 @@ router.beforeEach(async (to, from, next) => {
           let routesMenuLeaf = [];
           console.time('模块加载');
           // 获取模块 / 异步获取
-          for (let puzzle of rootMenus) {
-            Vue.set(puzzle, 'id', puzzle.code);
-            Vue.set(puzzle, 'page', puzzle.href);
-            Vue.set(puzzle, 'name', puzzle.title);
-            Vue.set(puzzle, 'puzzle', puzzle.code);
-            if (puzzle.type == 'menu') {
-              Vue.set(puzzle, 'leaf', true);
+          for (let product of rootMenus) {
+            Vue.set(product, 'id', product.code);
+            Vue.set(product, 'page', product.href);
+            Vue.set(product, 'name', product.title);
+            Vue.set(product, 'product', product.code);
+            if (product.type == 'menu') {
+              Vue.set(product, 'leaf', true);
             } else {
-              Vue.set(puzzle, 'leaf', false);
+              Vue.set(product, 'leaf', false);
             }
-            await _import("puzzles", puzzle.id, modulesMap)
+            await _import("products", product.id, modulesMap)
               .then(p => {
                 // 需要生成路由的菜单
                 let menusRouter = [];
-                handleMenus(Vue, puzzle.children, menusRouter);
+                handleMenus(Vue, product.children, menusRouter);
                 // console.log('menusRouter', menusRouter);
                 // 路由
-                const pMenusRouter = p.router(menusRouter, puzzle.id);
+                const pMenusRouter = p.router(menusRouter, product.id);
                 childRouter[0].children = pMenusRouter
                   .concat(p.routerStatic);
                 pages.push(...childRouter[0].children);

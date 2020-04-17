@@ -1,13 +1,13 @@
-# 基于 Vue 和 Webpack4 的可插拔式微前端架构 - Puzzle
+# 基于 Vue 和 Webpack4 的可插拔式微前端架构 - PRODUCT
 
-演示环境：[PuzzleDemo](http://www.shuva.cn/demo/puzzle/#/home)
+演示环境：[PRODUCTDemo](http://www.shuva.cn/demo/product/#/home)
 
-![Puzzle Logo](https://raw.githubusercontent.com/CyberFei/pic/master/logo_400x400.png)
+![PRODUCT Logo](https://raw.githubusercontent.com/CyberFei/pic/master/logo_400x400.png)
 
 
-## 什么是 Puzzle
+## 什么是 PRODUCT
 
-Puzzle 是基于 Vue 和 Webpack4 实现的一种项目结构；业务模块可以像拼图一样与架构模块组合，形成不同的系统，而这一切都是可以在**生产环境热插拔**的；这意味着你可以随时向你的系统添加新的功能模块，甚至改版整个系统，而不需要替换掉整个项目。
+PRODUCT 是基于 Vue 和 Webpack4 实现的一种项目结构；业务模块可以像拼图一样与架构模块组合，形成不同的系统，而这一切都是可以在**生产环境热插拔**的；这意味着你可以随时向你的系统添加新的功能模块，甚至改版整个系统，而不需要替换掉整个项目。
 
 此外当多个项目使用此架构开发，即使模块是由不同的项目打包出来的，也可以在生产环境进行快速组合，模块可以非常简单的进行复用。
 
@@ -21,7 +21,7 @@ Puzzle 是基于 Vue 和 Webpack4 实现的一种项目结构；业务模块可�
 
 - 基座作为基座模块，也支持多个并存（这意味着你可以很轻松的进行灰度测试）
 
-  
+
 
 ## 如何做到的
 
@@ -92,12 +92,12 @@ npm run build
         name: "云服务器 ECS",
         leaf: true,
         page: "/ecs",
-        puzzle: "elastic"
+        product: "elastic"
       },
       // ...
     ],
     icon: "aperture",
-    puzzle: "elastic"
+    product: "elastic"
   },
   {
     id: "database",
@@ -107,7 +107,7 @@ npm run build
     	// ...
     ],
     icon: "aperture",
-    puzzle: "database"
+    product: "database"
   },
   // ...
 ]
@@ -138,7 +138,7 @@ npm run frame --name="xxx"
 #### 单独打包业务模块
 
 ```bash
-npm run puzzle --name="xxx"
+npm run product --name="xxx"
 ```
 
 通过上述操作打包出的模块，可以直接新增到生产环境或者替换生产环境对应应模块
@@ -150,7 +150,7 @@ npm run puzzle --name="xxx"
 
 ### 开发环境结构
 
-![dev](https://github.com/CyberFei/pic/raw/master/puzzle/dev.png)
+![dev](https://github.com/CyberFei/pic/raw/master/product/dev.png)
 
 #### config
 
@@ -170,7 +170,7 @@ index.html：HTML 模版
 
 基座模块代码，多个基座模块并列放置
 
-#### src -> puzzles
+#### src -> products
 
 业务模块代码，多个业务模块并列放置
 
@@ -188,7 +188,7 @@ index.html：HTML 模版
 
 生产环境代码按照一定结构放置，可以自由升级替换对应模块
 
-![prod](https://github.com/CyberFei/pic/raw/master/puzzle/prod.png)
+![prod](https://github.com/CyberFei/pic/raw/master/product/prod.png)
 
 #### core
 
@@ -198,9 +198,9 @@ index.html：HTML 模版
 
 由 `npm run frame` 生成的基座模块代码
 
-#### puzzles
+#### products
 
-由 `npm run puzzle` 生成的业务模块代码
+由 `npm run product` 生成的业务模块代码
 
 #### static
 

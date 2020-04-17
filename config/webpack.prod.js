@@ -23,8 +23,8 @@ const promptList = [
   {
     type: "checkbox",
     message: "请选择需要打包的模块:",
-    name: "puzzles",
-    choices: getAllDirs("./src/puzzles"),
+    name: "products",
+    choices: getAllDirs("./src/products"),
     validate: function(val) {
       var done = this.async();
       if (val.length == 0) {
@@ -51,9 +51,9 @@ const promptList = [
     await webpackPromise(_common("frames", item));
 
   // 打包模块
-  console.log("\n--------------- BUILD PUZZLES ---------------");
-  for (let item of answers.puzzles)
-    await webpackPromise(_common("puzzles", item));
+  console.log("\n--------------- BUILD products ---------------");
+  for (let item of answers.products)
+    await webpackPromise(_common("products", item));
 })().then(() => {
   // 处理缓存问题
   generateModulesMap();

@@ -66,7 +66,7 @@ exports.generateModulesMap = function() {
     }
   }
   getModules("frames");
-  getModules("puzzles");
+  getModules("products");
 
   let modulesMapString = "";
   for (let key in modulesMap)
@@ -85,7 +85,7 @@ exports.generateModulesMap = function() {
 
 // 获取 dll
 exports.getDlls = function() {
-  let dlls = ["core", "puzzle"];
+  let dlls = ["core", "product"];
   let dllNames = [];
   for (let item of dlls) {
     const dllName = require(`../static/dll/${item}.manifest.json`).name.split(

@@ -20,16 +20,16 @@ module.exports = {
       '@coreMixins': resolve('src/core/utils/mixins'),
       '@coreData': resolve('src/core/assets/data'),
       '@coreImg': resolve('src/core/assets/img'),
-      '@corePlugins': resolve('src/core/assets/plugins'),
       '@coreTheme': resolve('src/core/assets/theme'),
       '@coreComp': resolve('src/core/components'),
       "@frames": resolve("src/frames"),
       "@framesDashboard": resolve("src/frames/dashboard"),
+      '@framesPlugins': resolve('src/frames/assets/plugins'),
       '@framesDashboardViews': resolve('src/frames/dashboard/views'),
       '@framesDashboardViewsComp': resolve('src/frames/dashboard/views/components'),
-      "@puzzles": resolve("src/puzzles"),
-      "@puzzlesCustorm": resolve("src/puzzles/custormManager"),
-      "@puzzlesSys": resolve("src/puzzles/sysManager")
+      "@products": resolve("src/products"),
+      "@productsCustorm": resolve("src/products/custormManager"),
+      "@productsSys": resolve("src/products/sysManager")
     }
   },
   module: {
@@ -97,7 +97,7 @@ module.exports = {
       manifest: require("../static/dll/core.manifest.json")
     }),
     new webpack.DllReferencePlugin({
-      manifest: require("../static/dll/puzzle.manifest.json")
+      manifest: require("../static/dll/product.manifest.json")
     })
   ]
 };

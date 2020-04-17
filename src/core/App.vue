@@ -16,14 +16,14 @@
       async init() {
         console.log('this.$router', this.$router);
         if(!this.$store.getters.frame.routerStatic){
-          document.title = PUZZLE_CONFIG.appName;
+          document.title = PRODUCT_CONFIG.appName;
           // 获取缓存map
           const modulesMap = await _import_map();
 
           // 获取架构
           let frame = await _import(
             "frames",
-            PUZZLE_CONFIG.frame,//localStorage.getItem("frame") ||
+            PRODUCT_CONFIG.frame,//localStorage.getItem("frame") ||
             modulesMap
           );
           this.$router.addRoutes(frame.routerStatic);
@@ -33,14 +33,14 @@
         }
 
         // console.time('async init');
-        // document.title = PUZZLE_CONFIG.appName;
+        // document.title = PRODUCT_CONFIG.appName;
         // // 获取缓存map
         // const modulesMap = await _import_map();
         //
         // // 获取架构
         // let frame = await _import(
         //   "frames",
-        //   PUZZLE_CONFIG.frame,//localStorage.getItem("frame") ||
+        //   PRODUCT_CONFIG.frame,//localStorage.getItem("frame") ||
         //   modulesMap
         // );
         // this.$router.addRoutes(frame.routerStatic);
@@ -60,24 +60,24 @@
         //   let routesMenuLeaf = [];
         //   console.time('模块加载');
         //   // 获取模块 / 异步获取
-        //   for (let puzzle of rootMenus) {
-        //     this.$set(puzzle, 'id', puzzle.code);
-        //     this.$set(puzzle, 'page', puzzle.href);
-        //     this.$set(puzzle, 'name', puzzle.title);
-        //     this.$set(puzzle, 'puzzle', puzzle.code);
-        //     if (puzzle.type == 'menu') {
-        //       this.$set(puzzle, 'leaf', true);
+        //   for (let product of rootMenus) {
+        //     this.$set(product, 'id', product.code);
+        //     this.$set(product, 'page', product.href);
+        //     this.$set(product, 'name', product.title);
+        //     this.$set(product, 'product', product.code);
+        //     if (product.type == 'menu') {
+        //       this.$set(product, 'leaf', true);
         //     } else {
-        //       this.$set(puzzle, 'leaf', false);
+        //       this.$set(product, 'leaf', false);
         //     }
-        //     _import("puzzles", puzzle.id, modulesMap)
+        //     _import("products", product.id, modulesMap)
         //       .then(p => {
         //         // 需要生成路由的菜单
         //         let menusRouter = [];
-        //         handleMenusApp(this, puzzle.children, menusRouter);
+        //         handleMenusApp(this, product.children, menusRouter);
         //         // console.log('menusRouter', menusRouter);
         //         // 路由
-        //         const pMenusRouter = p.router(menusRouter, puzzle.id);
+        //         const pMenusRouter = p.router(menusRouter, product.id);
         //         childRouter[0].children = pMenusRouter
         //           .concat(p.routerStatic);
         //         pages.push(...childRouter[0].children);
