@@ -32,7 +32,7 @@ function markScroll(to, from, next) {
     !from.name &&
     to.path != "/mainIndex" &&
     to.name &&
-    PUZZLE_CONFIG.pageHome != to.name
+    PRODUCT_CONFIG.pageHome != to.name
   ) {
     store.commit("ADD_TAB", to.name);
   }

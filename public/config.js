@@ -1,5 +1,5 @@
 // 系统配置
-window.PUZZLE_CONFIG = {
+window.PRODUCT_CONFIG = {
   // 系统名称
   appName: "超级管理",
   // 接口地址

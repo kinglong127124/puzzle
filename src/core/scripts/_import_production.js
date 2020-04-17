@@ -8,13 +8,13 @@ export default (type, name, modulesMap) =>
       }.js`,
       {
         success: () => {
-          window.PUZZLE_SUCCESS = window.PUZZLE_SUCCESS || [];
-          window.PUZZLE_SUCCESS.push(name);
+          window.PRODUCT_SUCCESS = window.PRODUCT_SUCCESS || [];
+          window.PRODUCT_SUCCESS.push(name);
           resolve({ default: window[type + "_" + name].default });
         },
         error: err => {
-          window.PUZZLE_FAILURE = window.PUZZLE_FAILURE || [];
-          window.PUZZLE_FAILURE.push(name);
+          window.PRODUCT_FAILURE = window.PRODUCT_FAILURE || [];
+          window.PRODUCT_FAILURE.push(name);
           reject(err);
         }
       }
