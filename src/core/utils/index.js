@@ -724,9 +724,9 @@ export function logout(msg, type) {
     closeOnPressEscape: false,
     type: type
   }).then(() => {
-    // store.dispatch('FedLogOut').then(() => {
-    //   location.reload(); // 为了重新实例化vue-router对象 避免bug
-    // });
+    store.dispatch('FedLogOut').then(() => {
+      this.$router.push({path: '/login'});
+    });
   });
 }
 
