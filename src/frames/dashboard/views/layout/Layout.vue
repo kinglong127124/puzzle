@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  @import "@core/styles/mixin.scss";
+  @import "@framesDashboard/styles/mixin.scss";
   .app-wrapper {
     @include clearfix;
     position: relative;

@@ -2,9 +2,10 @@ import RouterStatic from "./scripts/routerStatic";
 import Store from "./store/";
 
 // 样式
-import '@framesDashboard/assets/plugins/iconfont/iconfont.css';
+import './assets/plugins/iconfont/iconfont.css';
+import './styles/index.scss';
 
-export default {
+export default  {
   routerStatic: RouterStatic,
   store: Store
 };

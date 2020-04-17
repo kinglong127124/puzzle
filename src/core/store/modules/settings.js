@@ -1,4 +1,4 @@
-import variables from '@core/styles/element-variables.scss';
+import variables from '@framesDashboard/styles/element-variables.scss';
 import defaultSettings from '@core/settings';
 
 const { showSettings, tagsView, fixedHeader, sidebarLogo, switchStation } = defaultSettings;

@@ -541,7 +541,6 @@
       },
       // 获取列表
       getPage(callback) {
-        debugger;
         api.static.getPage({ ...this.pageInfo, field: this.modelSearchFilter }).then((response) => {
           this.tableData.data = response.data.rows;
           this.tableData.total = response.data.total;

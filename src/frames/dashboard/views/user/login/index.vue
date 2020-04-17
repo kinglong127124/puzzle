@@ -321,7 +321,7 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import "@core/styles/mixin.scss";
+  @import "@framesDashboard/styles/mixin.scss";
 
   .tips {
     font-size: 14px;

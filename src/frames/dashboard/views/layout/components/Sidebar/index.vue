@@ -36,7 +36,7 @@
 <script>
 import { mapGetters, mapState } from 'vuex';
 import SidebarItem from './SidebarItem';
-import variables from '@core/styles/variables.scss';
+import variables from '@framesDashboard/styles/variables.scss';
 
 export default {
   components: { SidebarItem },
