@@ -6,8 +6,6 @@ import store from "./store";
 import App from "./App.vue";
 import Cookies from 'js-cookie';
 import Element from 'element-ui';
-// import 'element-ui/lib/theme-chalk/index.css'
-import '@core/assets/theme/chalk/index.css';
 import '@core/icons'; // icon
 
 // 接口

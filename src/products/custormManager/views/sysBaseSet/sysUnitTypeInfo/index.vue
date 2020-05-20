@@ -90,7 +90,7 @@
                 :disabled="disabledDisnable"
                 type="danger"
                 size="small"
-                icon="el-icon-circle-close-outline"
+                icon="el-icon-circle-close"
                 plain
                 @click="disableStatus(2)">禁用
               </el-button>
@@ -98,7 +98,7 @@
                 :disabled="disabledEnable"
                 type="success"
                 size="small"
-                icon="el-icon-circle-check-outline"
+                icon="el-icon-circle-check"
                 plain
                 @click="disableStatus(1)">启用
               </el-button>

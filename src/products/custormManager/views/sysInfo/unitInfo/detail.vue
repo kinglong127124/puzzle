@@ -24,7 +24,7 @@
                     :disabled="disabledDisenable"
                     type="danger"
                     size="small"
-                    icon="el-icon-circle-close-outline"
+                    icon="el-icon-circle-close"
                     plain
                     @click="clickDisenable">禁用
             </el-button>
@@ -32,7 +32,7 @@
                     :disabled="disabledEnable"
                     type="success"
                     size="small"
-                    icon="el-icon-circle-check-outline"
+                    icon="el-icon-circle-check"
                     plain
                     @click="clickEnable">启用
             </el-button>

@@ -41,7 +41,7 @@
         :disabled="disabledUserManagerDetailDisenable"
         type="danger"
         size="small"
-        icon="el-icon-circle-close-outline"
+        icon="el-icon-circle-close"
         plain
         @click="clickUserManagerDetailDisenable">禁用
       </el-button>
@@ -50,7 +50,7 @@
         :disabled="disabledUserManagerDetailEnable"
         type="success"
         size="small"
-        icon="el-icon-circle-check-outline"
+        icon="el-icon-circle-check"
         plain
         @click="clickUserManagerDetailEnable">启用
       </el-button>

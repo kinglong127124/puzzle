@@ -74,7 +74,7 @@
               </el-button>
               <el-button
                 :disabled="disabledEnable"
-                icon="el-icon-circle-close-outline"
+                icon="el-icon-circle-close"
                 plain
                 size="small"
                 type="danger"
@@ -82,7 +82,7 @@
               </el-button>
               <el-button
                 :disabled="disabledEnableTwo"
-                icon="el-icon-circle-check-outline"
+                icon="el-icon-circle-check"
                 plain
                 size="small"
                 type="success"

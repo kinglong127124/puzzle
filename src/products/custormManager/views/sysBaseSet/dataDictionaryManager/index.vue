@@ -45,7 +45,7 @@
                 :disabled="disableSysDataDictionaryDisable"
                 type="danger"
                 size="small"
-                icon="el-icon-circle-close-outline"
+                icon="el-icon-circle-close"
                 plain
                 @click="handleSysDataDictionaryDisable">禁用
               </el-button>
@@ -54,7 +54,7 @@
                 :disabled="disableSysDataDictionaryEnable"
                 type="success"
                 size="small"
-                icon="el-icon-circle-check-outline"
+                icon="el-icon-circle-check"
                 plain
                 @click="handleSysDataDictionaryEnable">启用
               </el-button>
@@ -218,7 +218,7 @@
                 :disabled="disableSysDataDictionaryDetailDisable"
                 type="danger"
                 size="small"
-                icon="el-icon-circle-close-outline"
+                icon="el-icon-circle-close"
                 plain
                 @click="handleSysDataDictionaryDetailDisable">禁用
               </el-button>
@@ -227,7 +227,7 @@
                 :disabled="disableSysDataDictionaryDetailEnable"
                 type="success"
                 size="small"
-                icon="el-icon-circle-check-outline"
+                icon="el-icon-circle-check"
                 plain
                 @click="handleSysDataDictionaryDetailEnable">启用
               </el-button>

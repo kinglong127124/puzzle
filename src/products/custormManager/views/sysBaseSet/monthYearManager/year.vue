@@ -32,7 +32,7 @@
         :disabled="disabledBtnDisableFlag"
         size="small"
         type="danger"
-        icon="el-icon-circle-close-outline"
+        icon="el-icon-circle-close"
         plain
         @click="clickDisabledBtn"
       >禁用
@@ -42,7 +42,7 @@
         :disabled="enabledBtnDisableFlag"
         size="small"
         type="success"
-        icon="el-icon-circle-check-outline"
+        icon="el-icon-circle-check"
         plain
         @click="clickEnabledBtn"
       >启用
