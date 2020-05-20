@@ -67,7 +67,7 @@ import computed from '@coreMixins/computed';
 import methods from '@coreMixins/methods';
 import formatBasic from '@coreMixins/formatBasic';
 import formatEnum from '@coreMixins/formatEnum';
-import api from '@productsCustorm/api/sysInfo/prodInfo';
+import api from '@custormManager/api/sysInfo/prodInfo';
 
 export default {
   name: 'DialogMenu',

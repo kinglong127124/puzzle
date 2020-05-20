@@ -10,7 +10,7 @@ import {
   deleteAccountancyMonth,
   enableOrDisabledYear,
   enableOrDisabledMonth
-} from '@productsCustorm/api/sysBaseSet/monthYearManager';
+} from '@custormManager/api/sysBaseSet/monthYearManager';
 
 const state = {};
 const getters = {};

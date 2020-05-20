@@ -1,5 +1,5 @@
 // 产品信息
-import api from '@productsCustorm/api/sysInfo/prodInfo';
+import api from '@custormManager/api/sysInfo/prodInfo';
 
 const state = {};
 const getters = {};

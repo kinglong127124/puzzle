@@ -126,7 +126,7 @@ import formatEnum from '@coreMixins/formatEnum';
 import pagination from '@core/components/Pagination';
 import {
   getUserManagerData
-} from '@productsSys/api/groupAuth/userManager/index';
+} from '@sysManager/api/groupAuth/userManager/index';
 
 export default {
   name: 'UserManager',

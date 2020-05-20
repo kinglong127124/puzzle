@@ -191,7 +191,7 @@ import {
   enableUnitType,
   deleteUnitType,
   addOrUpdateUnitType
-} from '@productsCustorm/api/sysBaseSet/sysUnitTypeInfo';
+} from '@custormManager/api/sysBaseSet/sysUnitTypeInfo';
 import {
   getNowFormatDate,
   deepCloneByObject,

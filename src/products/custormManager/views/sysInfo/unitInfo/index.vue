@@ -61,7 +61,7 @@
   import formatBasic from '@coreMixins/formatBasic';
   import formatEnum from '@coreMixins/formatEnum';
   import { staticDataBasic } from '@coreData/basic';
-  import api from '@productsCustorm/api/sysInfo/unitInfo';
+  import api from '@custormManager/api/sysInfo/unitInfo';
 
   export default {
     name: 'UnitInfoFront',

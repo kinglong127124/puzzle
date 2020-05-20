@@ -101,7 +101,7 @@ import formatEnum from '@coreMixins/formatEnum';
 import pagination from '@core/components/Pagination';
 import {
   page
-} from '@productsSys/api/groupAuth/gateLog/index';
+} from '@sysManager/api/groupAuth/gateLog/index';
 
 export default {
   name: 'GateLog',

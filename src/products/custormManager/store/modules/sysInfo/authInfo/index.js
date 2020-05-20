@@ -1,7 +1,7 @@
 // 暴露接口
 import {
   getAllMenus
-} from '@productsCustorm/api/sysInfo/authInfo';
+} from '@custormManager/api/sysInfo/authInfo';
 
 const state = {};
 const getters = {};

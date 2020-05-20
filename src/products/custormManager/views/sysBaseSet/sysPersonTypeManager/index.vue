@@ -191,7 +191,7 @@ import {
   enablePersonType,
   deletePersonType,
   addOrUpdatePersonType
-} from '@productsCustorm/api/sysBaseSet/costPerson/person';
+} from '@custormManager/api/sysBaseSet/costPerson/person';
 import {
   getNowFormatDate,
   deepCloneByObject,

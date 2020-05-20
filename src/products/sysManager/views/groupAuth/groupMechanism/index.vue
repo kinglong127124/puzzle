@@ -236,7 +236,7 @@ import {
   deleteGroupMechanism,
   enableGroupMechanism,
   addOrUpdateGroupMechanism
-} from '@productsSys/api/groupAuth/groupMechanism';
+} from '@sysManager/api/groupAuth/groupMechanism';
 
 export default {
   components: { computed, methods, splitPane },

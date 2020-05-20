@@ -230,7 +230,7 @@ import computed from '@coreMixins/computed';
 import methods from '@coreMixins/methods';
 import {
   fetchTree, getObj, addObj, delObj, putObj, getCrmProductInfoAll
-} from '@productsSys/api/groupAuth/menu/index';
+} from '@sysManager/api/groupAuth/menu/index';
 import { mapState } from 'vuex';
 import splitPane from 'vue-splitpane';
 import { staticDataBasic } from '@coreData/basic';

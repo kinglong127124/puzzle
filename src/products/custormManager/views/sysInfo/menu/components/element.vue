@@ -130,7 +130,7 @@ import {
   getObj,
   delObj,
   putObj
-} from '@productsCustorm/api/sysInfo/menu/element';
+} from '@custormManager/api/sysInfo/menu/element';
 import { mapState } from 'vuex';
 import { staticDataBasic } from '@coreData/basic';
 export default {

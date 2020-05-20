@@ -15,7 +15,7 @@
 import tabPane from './components/groupDetail';
 import {
   getAllGroupTypes
-} from '@productsSys/api/groupAuth/group/index';
+} from '@sysManager/api/groupAuth/group/index';
 export default {
   name: 'Group',
   components: {

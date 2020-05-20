@@ -5,7 +5,7 @@ import {
   deleteArea,
   configArea,
   putEnableOrDisableArea
-} from '@productsCustorm/api/sysBaseSet/areaManager';
+} from '@custormManager/api/sysBaseSet/areaManager';
 
 const state = {};
 const getters = {};

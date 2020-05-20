@@ -151,7 +151,7 @@ import methods from '@coreMixins/methods';
 import formatBasic from '@coreMixins/formatBasic';
 import formatEnum from '@coreMixins/formatEnum';
 import { staticDataBasic } from '@coreData/basic';
-import api from '@productsCustorm/api/sysInfo/prodInfo';
+import api from '@custormManager/api/sysInfo/prodInfo';
 const dialogProduct = () => import('@framesDashboardViews/components/dialog/dialogProduct');
 const dialogMenu = () => import('@framesDashboardViews/components/dialog/dialogMenu');
 export default {

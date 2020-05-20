@@ -73,7 +73,7 @@
 <script>
 // import { validateLength } from '@coreUtils/validate';
 import pageListEdit from '@coreMixins/pageListEdit';
-import apiPrint from '@productsCustorm/api/sysInfo/menu/print';
+import apiPrint from '@custormManager/api/sysInfo/menu/print';
 export default {
   name: 'Print',
   mixins: [pageListEdit],

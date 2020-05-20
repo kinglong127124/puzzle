@@ -87,17 +87,17 @@
 <script>
 import {
   fetchTree
-} from '@productsSys/api/groupAuth/menu/index';
+} from '@sysManager/api/groupAuth/menu/index';
 import {
   page
-} from '@productsSys/api/groupAuth/element/index';
+} from '@sysManager/api/groupAuth/element/index';
 import {
   removeElementAuthority,
   addElementAuthority,
   getElementAuthority,
   modifyMenuAuthority,
   getMenuAuthority
-} from '@productsSys/api/groupAuth/group/index';
+} from '@sysManager/api/groupAuth/group/index';
 import { staticDataBasic } from '@coreData/basic';
 import { mapState } from 'vuex';
 export default {

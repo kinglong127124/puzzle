@@ -485,7 +485,7 @@ import { validateLength } from '@coreUtils/validate';
    * api
    * */
 import api from '@coreApi/common';
-import { putHandle } from '@productsCustorm/api/sysInfo/businessManager';
+import { putHandle } from '@custormManager/api/sysInfo/businessManager';
 export default {
   name: 'ServiceLogDetail',
   components: {

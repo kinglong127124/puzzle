@@ -191,7 +191,7 @@ import {
   enableMaterialType,
   deleteMaterialType,
   addOrUpdateMaterialType
-} from '@productsCustorm/api/sysBaseSet/materialType';
+} from '@custormManager/api/sysBaseSet/materialType';
 import {
   getNowFormatDate,
   deepCloneByObject,

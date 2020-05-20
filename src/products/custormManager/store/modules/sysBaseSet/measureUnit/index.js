@@ -5,7 +5,7 @@ import {
   deleteMeasureUnit,
   configMeasureUnit,
   putSysConfigUnits
-} from '@productsCustorm/api/sysBaseSet/measureUnit';
+} from '@custormManager/api/sysBaseSet/measureUnit';
 
 const state = {};
 const getters = {};

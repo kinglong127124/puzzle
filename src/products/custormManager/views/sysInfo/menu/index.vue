@@ -331,7 +331,7 @@ import computed from '@coreMixins/computed';
 import methods from '@coreMixins/methods';
 import {
   fetchTree, getObj, addObj, delObj, putObj, putIconBackgroudColor
-} from '@productsCustorm/api/sysInfo/menu';
+} from '@custormManager/api/sysInfo/menu';
 import { mapState } from 'vuex';
 import splitPane from 'vue-splitpane';
 import { staticDataBasic } from '@coreData/basic';

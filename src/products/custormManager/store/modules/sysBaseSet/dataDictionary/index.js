@@ -13,7 +13,7 @@ import {
   putSysConfigDataDictionaryDetailEnable
 
 }
-  from '@productsCustorm/api/sysBaseSet/dataDictionary';
+  from '@custormManager/api/sysBaseSet/dataDictionary';
 
 const state = {};
 const getters = {};

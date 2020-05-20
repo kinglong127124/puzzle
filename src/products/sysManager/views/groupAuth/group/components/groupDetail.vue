@@ -208,7 +208,7 @@ import {
   deleteNoAuditRole,
   validateStatusRole,
   enableRole
-} from '@productsSys/api/groupAuth/group/index';
+} from '@sysManager/api/groupAuth/group/index';
 import computed from '@coreMixins/computed';
 import methods from '@coreMixins/methods';
 import { staticDataBasic } from '@coreData/basic';

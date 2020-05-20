@@ -19,11 +19,11 @@
 <script>
 import {
   getUserManagerData
-} from '@productsSys/api/groupAuth/userManager/index';
+} from '@sysManager/api/groupAuth/userManager/index';
 import {
   getUsers,
   modifyUsers
-} from '@productsSys/api/groupAuth/group/index';
+} from '@sysManager/api/groupAuth/group/index';
 import { mapState } from 'vuex';
 export default {
   name: 'GroupUser',

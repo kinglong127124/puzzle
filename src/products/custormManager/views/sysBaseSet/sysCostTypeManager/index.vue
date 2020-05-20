@@ -192,7 +192,7 @@ import {
   enableFeeType,
   deleteFeeType,
   addOrUpdateFeeType
-} from '@productsCustorm/api/sysBaseSet/costPerson/cost';
+} from '@custormManager/api/sysBaseSet/costPerson/cost';
 import {
   getNowFormatDate,
   deepCloneByObject,

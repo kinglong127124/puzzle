@@ -267,7 +267,7 @@ import {
   auditDic,
   deleteDic,
   enableDic
-} from '@productsCustorm/api/sysBaseSet/materialDictionary';
+} from '@custormManager/api/sysBaseSet/materialDictionary';
 import { getMeasureUnitData } from '@coreApi/common/dataBasic';
 
 export default {

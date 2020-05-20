@@ -119,7 +119,7 @@ import methods from '@coreMixins/methods';
 import pagination from '@core/components/Pagination';
 import splitPane from 'vue-splitpane';
 import formatEnum from '@coreMixins/formatEnum';
-import api from '@productsCustorm/api/sysInfo/prodInfo';
+import api from '@custormManager/api/sysInfo/prodInfo';
 export default {
   name: 'ProdInfoList',
   components: { pagination, splitPane },

@@ -105,7 +105,7 @@ import formatEnum from '@coreMixins/formatEnum';
 import pagination from '@coreComp/Pagination';
 import {
   page
-} from '@productsCustorm/api/handlerManager/handlerLog/index';
+} from '@custormManager/api/handlerManager/handlerLog/index';
 
 export default {
   name: 'GateLog',

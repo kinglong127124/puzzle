@@ -28,8 +28,8 @@ module.exports = {
       '@framesDashboardViews': resolve('src/frames/dashboard/views'),
       '@framesDashboardViewsComp': resolve('src/frames/dashboard/views/components'),
       "@products": resolve("src/products"),
-      "@productsCustorm": resolve("src/products/custormManager"),
-      "@productsSys": resolve("src/products/sysManager")
+      "@custormManager": resolve("src/products/custormManager"),
+      "@sysManager": resolve("src/products/sysManager")
     }
   },
   module: {

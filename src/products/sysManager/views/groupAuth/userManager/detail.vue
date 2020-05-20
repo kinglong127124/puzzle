@@ -438,7 +438,7 @@ import {
   getUserManagerDetailRolesData,
   postUserManagerDetailRolesAddOk,
   deleteUserManagerDetailRolesDelete
-} from '@productsSys/api/groupAuth/userManager/detail';
+} from '@sysManager/api/groupAuth/userManager/detail';
 import { deepCloneByObject, logout } from '@coreUtils/index';
 import { validatePhone, validateLength } from '@coreUtils/validate';
 import computed from '@coreMixins/computed';

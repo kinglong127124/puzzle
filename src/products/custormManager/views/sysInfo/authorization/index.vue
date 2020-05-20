@@ -92,8 +92,8 @@ import { staticDataBasic } from '@coreData/basic';
 
 const dialogUnit = () => import('@framesDashboardViewsComp/dialog/dialogUnit');
 
-import { fetchTree } from '@productsCustorm/api/sysInfo/menu';
-import { getUnit, saveUnit, delUnit } from '@productsCustorm/api/sysInfo/authorization';
+import { fetchTree } from '@custormManager/api/sysInfo/menu';
+import { getUnit, saveUnit, delUnit } from '@custormManager/api/sysInfo/authorization';
 
 export default {
   name: 'Authorization',
